@@ -196,6 +196,69 @@
             header h1 { font-size: 22px; }
             .quick-nav ul { grid-template-columns: 1fr; }
         }
+
+	/* ========================================== */
+        /* 다크모드 스타일 (클래스 토글 방식)         */
+        /* ========================================== */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --container-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --text-dark: #f8fafc;
+            --primary-color: #38bdf8;
+            --primary-light: #0c4a6e;
+            --border-color: #334155;
+            --accent-light: #7c2d12;
+        }
+
+        body.dark-mode .quick-nav {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+        }
+
+        body.dark-mode .sub-section {
+            background: #111827;
+        }
+
+        body.dark-mode .keyword {
+            background-color: #334155;
+        }
+
+        body.dark-mode .formula-box {
+            background-color: #0f172a;
+            border-color: #475569;
+            color: #f8fafc;
+        }
+
+        body.dark-mode #subject4 div style {
+            background: #111827 !important; /* 계산 문제 정답창 배경 */
+        }
+
+        /* 다크모드 토글 버튼 스타일 */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
     </style>
 </head>
 <body>
@@ -459,6 +522,39 @@
             </ul>
         </div>
     </section>
+
+<button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙 다크모드 보기</button>
+<script>
+    // 페이지 로드 시 기존에 설정한 테마가 있는지 확인
+    window.onload = function() {
+        const savedTheme = localStorage.getItem('theme');
+        const btn = document.getElementById('themeToggle');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            btn.innerHTML = '☀️ 라이트모드 보기';
+        }
+    };
+
+    // 버튼 클릭 시 실행되는 토글 함수
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeToggle');
+
+        // 클래스 토글
+        body.classList.toggle('dark-mode');
+
+        // 상태에 따라 버튼 텍스트 변경 및 로컬스토리지 저장
+        if (body.classList.contains('dark-mode')) {
+            btn.innerHTML = '☀️ 라이트모드 보기';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            btn.innerHTML = '🌙 다크모드 보기';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+</script>
+
 
 </body>
 </html>
