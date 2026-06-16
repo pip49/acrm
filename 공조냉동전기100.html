@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,757 +30,696 @@
         .nav-buttons {
             margin: 15px 0;
             text-align: center;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
         }
         .btn {
             background-color: #2c2c2c;
             color: #ffffff;
             border: 1px solid #444444;
-            padding: 6px 12px;
-            font-size: 0.85em;
+            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            border-radius: 4px;
-            margin: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            flex: 1;
+            max-width: 180px;
+        }
+        .btn:active {
+            background-color: #444444;
         }
         .q-box {
             background-color: #1e1e1e;
             border: 1px solid #333333;
             padding: 12px;
-            border-radius: 4px;
             margin-bottom: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .q-box:active {
+            background-color: #252525;
         }
         .q-num {
             font-weight: bold;
             color: #03dac6;
-            font-size: 0.95em;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
         .q-text {
-            font-size: 0.95em;
-            margin-bottom: 8px;
-            word-break: break-all;
+            font-size: 15px;
+            word-break: keep-all;
         }
         .ans-box {
-            background-color: #2d2d2d;
-            border-left: 4px solid #cf6679;
-            padding: 6px 10px;
-            font-size: 0.95em;
-            color: #ffb74d;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        /* 라이트 모드 스타일 (전환용) */
-        body.light-mode {
-            background-color: #f9f9f9;
-            color: #222222;
-        }
-        body.light-mode .q-box {
-            background-color: #ffffff;
-            border: 1px solid #dddddd;
-        }
-        body.light-mode h1 {
-            color: #004b8d;
-            border-bottom: 2px solid #004b8d;
-        }
-        body.light-mode .btn {
-            background-color: #eeeeee;
-            color: #333333;
-            border: 1px solid #cccccc;
-        }
-        body.light-mode .q-num {
-            color: #0066cc;
-        }
-        body.light-mode .ans-box {
-            background-color: #f1f1f1;
-            border-left: 4px solid #d9534f;
-            color: #b71c1c;
-        }
-        /* 하단 고정 토글 스위치 영역 */
-        .fixed-toggle {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
-        .toggle-btn {
-            background-color: #03dac6;
-            color: #000000;
-            font-weight: bold;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            font-size: 0.9em;
-        }
-        body.light-mode .toggle-btn {
-            background-color: #004b8d;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #2e7d32;
             color: #ffffff;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 15px;
         }
         .hidden {
-            display: none;
+            display: none !important;
         }
     </style>
-    <script>
-        function toggleMode() {
-            var body = document.body;
-            var btn = document.getElementById("theme-btn");
-            if (body.className === "light-mode") {
-                body.className = "";
-                btn.innerHTML = "☀️ 라이트모드로 보기";
-            } else {
-                body.className = "light-mode";
-                btn.innerHTML = "🌙 다크모드로 보기";
-            }
-        }
-
-        var allVisible = false;
-        function toggleAllAnswers() {
-            var answers = document.getElementsByClassName("ans-box");
-            var mainAnsBtn = document.getElementById("main-ans-btn");
-            allVisible = !allVisible;
-            for (var i = 0; i < answers.length; i++) {
-                if (allVisible) {
-                    answers[i].className = "ans-box";
-                } else {
-                    answers[i].className = "ans-box hidden";
-                }
-            }
-            if (allVisible) {
-                mainAnsBtn.innerHTML = "🙈 정답 모두 숨기기";
-            } else {
-                mainAnsBtn.innerHTML = "👀 정답 모두 보이기";
-            }
-        }
-
-        function toggleAns(el) {
-            var ans = el.nextSibling;
-            while (ans && ans.nodeType !== 1) {
-                ans = ans.nextSibling;
-            }
-            if (ans && ans.className.indexOf("hidden") !== -1) {
-                ans.className = "ans-box";
-            } else if (ans) {
-                ans.className = "ans-box hidden";
-            }
-        }
-    </script>
 </head>
 <body>
 
-    <div class="fixed-toggle">
-        <button id="theme-btn" class="toggle-btn" onclick="toggleMode()">☀️ 라이트모드로 보기</button>
+<div class="container">
+    <h1>⚡ 공조냉동기능사 전기분야 핵심 100제</h1>
+
+    <div class="nav-buttons">
+        <button class="btn" onclick="showAllAns()">정답 모두 보이기</button>
+        <button class="btn" onclick="hideAllAns()">정답 모두 숨기기</button>
     </div>
 
-    <div class="container">
-        <h1>공조냉동기능사 전기분야 핵심 100제</h1>
-        <p style="font-size:0.8em; opacity:0.8; margin-top:-5px;">* 밤에 보기 편한 다크모드가 기본 적용되어 있습니다.<br>* 문제를 누르면 해당 문제의 정답만 개별 확인이 가능합니다.</p>
-        
-        <div class="nav-buttons">
-            <button id="main-ans-btn" class="btn" onclick="toggleAllAnswers()">👀 정답 모두 보이기</button>
-        </div>
-
-        <div id="quiz-container">
-
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q001</div>
-            <div class="q-text">전류의 흐름을 방해하는 성질을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 저항 (Resistance)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q002</div>
-            <div class="q-text">전하의 이동 또는 전기의 흐름을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 전류 (Current)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q003</div>
-            <div class="q-text">두 점 사이의 전위차를 나타내는 전기적인 압력을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 전압 (Voltage)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q004</div>
-            <div class="q-text">전류의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: A (암페어)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q005</div>
-            <div class="q-text">전압의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: V (볼트)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q006</div>
-            <div class="q-text">저항의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: Ω (옴)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q007</div>
-            <div class="q-text">전류(I), 전압(V), 저항(R)의 관계를 정의한 전류는 전압에 비례하고 저항에 반비례한다는 법칙은?</div>
-            <div class="ans-box hidden">정답: 옴의 법칙 (Ohm's Law)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q008</div>
-            <div class="q-text">옴의 법칙에서 전압(V)을 구하는 공식은?</div>
-            <div class="ans-box hidden">정답: V = I × R</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q009</div>
-            <div class="q-text">옴의 법칙에서 전류(I)을 구하는 공식은?</div>
-            <div class="ans-box hidden">정답: I = V / R</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q010</div>
-            <div class="q-text">옴의 법칙에서 저항(R)을 구하는 공식은?</div>
-            <div class="ans-box hidden">정답: R = V / I</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q011</div>
-            <div class="q-text">1초 동안 전기가 하는 일의 양으로, 전압과 전류의 곱으로 표현되는 것은?</div>
-            <div class="ans-box hidden">정답: 전력 (Electric Power)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q012</div>
-            <div class="q-text">전력의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: W (와트)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q013</div>
-            <div class="q-text">전력(P)을 전압(V)과 전류(I)로 나타낸 공식은?</div>
-            <div class="ans-box hidden">정답: P = V × I</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q014</div>
-            <div class="q-text">전하가 일정 시간 동안 한 일의 총량으로, 전력에 시간을 곱한 것은?</div>
-            <div class="ans-box hidden">정답: 전력량 (Electric Energy)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q015</div>
-            <div class="q-text">전력량의 대표적인 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: Wh (와트시) 또는 kWh</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q016</div>
-            <div class="q-text">저항 2개를 직렬로 연결했을 때 총합성저항을 구하는 방법은?</div>
-            <div class="ans-box hidden">정답: 두 저항을 더한다 (R1 + R2)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q017</div>
-            <div class="q-text">저항 2개를 병렬로 연결했을 때 총합성저항을 구하는 공식(합분의 곱)은?</div>
-            <div class="ans-box hidden">정답: (R1 × R2) / (R1 + R2)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q018</div>
-            <div class="q-text">회로가 직렬로 연결되어 있을 때 회로 전체에서 일정한 값을 유지하는 것은?</div>
-            <div class="ans-box hidden">정답: 전류</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q019</div>
-            <div class="q-text">회로가 병렬로 연결되어 있을 때 각 저항에 걸리는 동일한 값은?</div>
-            <div class="ans-box hidden">정답: 전압</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q020</div>
-            <div class="q-text">시간의 흐름에 따라 크기와 방향이 변하지 않고 일정한 전기를 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 직류 (DC)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q021</div>
-            <div class="q-text">시간의 흐름에 따라 크기와 방향이 주기적으로 변하는 전기를 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 교류 (AC)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q022</div>
-            <div class="q-text">교류가 1초 동안 반복하는 주기의 횟수를 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 주파수 (Frequency)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q023</div>
-            <div class="q-text">주파수의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: Hz (헤르츠)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q024</div>
-            <div class="q-text">우리나라 가정용 및 공업용 상용 전력의 표준 주파수는 몇 Hz인가?</div>
-            <div class="ans-box hidden">정답: 60 Hz</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q025</div>
-            <div class="q-text">교류 회로에서 전압과 전류의 파형이 변할 때, 1주기를 마치는 데 걸리는 시간을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 주기 (Period)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q026</div>
-            <div class="q-text">주기(T)와 주파수(f)의 관계를 나타낸 공식은?</div>
-            <div class="ans-box hidden">정답: T = 1 / f (서로 역수 관계)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q027</div>
-            <div class="q-text">전기를 축적(저장)할 수 있는 능력을 가진 소자를 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 콘덴서 (커패시터)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q028</div>
-            <div class="q-text">정전용량의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: F (페럿)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q029</div>
-            <div class="q-text">코일(인덕터)이 가지는 유도성 성질로, 전류의 변화를 방해하는 능력을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 인덕턴스 (Inductance)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q030</div>
-            <div class="q-text">인덕턴스의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: H (헨리)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q031</div>
-            <div class="q-text">교류 회로에서 전압과 전류의 위상차로 인해 발생하는 효율의 저하를 나타내며, 유효전력과 피상전력의 비율은?</div>
-            <div class="ans-box hidden">정답: 역률 (Power Factor)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q032</div>
-            <div class="q-text">교류 회로에서 저항, 리액턴스의 합성으로 전류의 흐름을 방해하는 총 저항 성분은?</div>
-            <div class="ans-box hidden">정답: 임피던스 (Impedance)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q033</div>
-            <div class="q-text">임피던스의 단위 기호는 무엇인가?</div>
-            <div class="ans-box hidden">정답: Ω (옴)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q034</div>
-            <div class="q-text">주어진 신호나 조건에 따라 정해진 순서대로 제어 단계를 진행하는 제어 방식을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 시퀀스 제어 (Sequence Control)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q035</div>
-            <div class="q-text">제어 결과를 다시 입력 측에 피드백하여 목표값과 비교하면서 제어하는 방식을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 피드백 제어 (자동제어)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q036</div>
-            <div class="q-text">평상시에는 열려 있다가 조작을 하면 닫히고, 조작을 멈추면 열리는 접점은?</div>
-            <div class="ans-box hidden">정답: A접점 (메이크 접점, NO)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q037</div>
-            <div class="q-text">평상시에는 닫혀 있다가 조작을 하면 열리고, 조작을 멈추면 다시 닫히는 접점은?</div>
-            <div class="ans-box hidden">정답: B접점 (브레이크 접점, NC)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q038</div>
-            <div class="q-text">A접점과 B접점을 공유하여 조작에 따라 한쪽은 열리고 한쪽은 닫히는 전환 접점은?</div>
-            <div class="ans-box hidden">정답: C접점 (체인지오버 접점)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q039</div>
-            <div class="q-text">스위치에서 손을 떼어도 릴레이의 보조 A접점을 이용하여 회로의 통전 상태를 계속 유지하는 회로는?</div>
-            <div class="ans-box hidden">정답: 자기유지 회로</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q040</div>
-            <div class="q-text">두 개의 회로가 동시에 동작하는 것을 방지하여 사고를 막는 상호 록킹 회로는?</div>
-            <div class="ans-box hidden">정답: 인터록 회로 (동시동작 방지회로)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q041</div>
-            <div class="q-text">전기 회로의 전류를 수동으로 ON/OFF 하기 위해 손으로 누르는 스위치는?</div>
-            <div class="ans-box hidden">정답: 푸시버튼 스위치 (Push Button)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q042</div>
-            <div class="q-text">외부에서 전류가 입력되면 내부에 자력이 발생하여 접점을 개폐하는 전자기적 스위치(계전기)는?</div>
-            <div class="ans-box hidden">정답: 릴레이 (Relay)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q043</div>
-            <div class="q-text">설정된 시간이 지난 후에 접점이 동작하거나 복귀하도록 제작된 시간 제한 계전기는?</div>
-            <div class="ans-box hidden">정답: 타이머 (Timer)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q044</div>
-            <div class="q-text">타이머에서 통전 즉시 접점이 붙는 접점을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 순시 접점</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q045</div>
-            <div class="q-text">타이머에서 통전 후 일정 시간이 지난 다음에 접점이 붙는 접점은?</div>
-            <div class="ans-box hidden">정답: 한시 접점</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q046</div>
-            <div class="q-text">압축기나 대형 모터 등 큰 전류를 사용하는 전동기 회로를 직접 개폐하는 주접점을 가진 기기는?</div>
-            <div class="ans-box hidden">정답: 전자접촉기 (MC, Magnetic Contactor)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q047</div>
-            <div class="q-text">모터에 과전류가 지속적으로 흐를 때 발생하는 열을 감지하여 회로를 차단하는 계전기는?</div>
-            <div class="ans-box hidden">정답: 열동계전기 (THR)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q048</div>
-            <div class="q-text">전자식으로 과전류를 감지하여 모터를 보호하는 기기의 약어는?</div>
-            <div class="ans-box hidden">정답: EOCR (전자식 과전류 계전기)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q049</div>
-            <div class="q-text">회로에 단락(쇼트)이나 누전, 과부하가 발생했을 때 수동 및 자동으로 선로를 차단하는 전원 차단 장치는?</div>
-            <div class="ans-box hidden">정답: 배선용차단기 (MCCB)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q050</div>
-            <div class="q-text">전기 기기 내부에서 누전이 발생했을 때 전류의 불균형을 감지하여 전원을 차단하는 안전장치는?</div>
-            <div class="ans-box hidden">정답: 누전차단기 (ELB)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q051</div>
-            <div class="q-text">냉동장치 내부의 온도를 감지하여 압축기를 기동 또는 정지시키는 온도 조절 장치는?</div>
-            <div class="ans-box hidden">정답: 서모스탯 (Thermostat, TC)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q052</div>
-            <div class="q-text">냉동기 고압측 압력이 과도하게 상승했을 때 시스템 보호를 위해 압축기를 정지시키는 스위치는?</div>
-            <div class="ans-box hidden">정답: 고압 차단 압력스위치 (HPS)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q053</div>
-            <div class="q-text">냉동기 저압측 압력이 이상 저하하거나 냉매가 누설되었을 때 압축기를 정지시키는 스위치는?</div>
-            <div class="ans-box hidden">정답: 저압 차단 압력스위치 (LPS)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q054</div>
-            <div class="q-text">고압 차단 스위치와 저압 차단 스위치를 하나의 기기에 일체형으로 만든 기기는?</div>
-            <div class="ans-box hidden">정답: 고저압 차단 압력스위치 (DPS)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q055</div>
-            <div class="q-text">압축기의 윤활유 압력이 부족할 때 압축기의 소손을 방지하기 위해 일정 시간 후 정지시키는 스위치는?</div>
-            <div class="ans-box hidden">정답: 유압 보호 스위치 (OPS)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q056</div>
-            <div class="q-text">전기적 신호를 받아 밸브를 열거나 닫아 냉매의 흐름을 제어하는 밸브는?</div>
-            <div class="ans-box hidden">정답: 전자밸브 (솔레노이드 밸브)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q057</div>
-            <div class="q-text">배관 내 유체의 흐름(유량)을 감지하여 흐름이 없을 때 기기를 정지시키는 안전 장치는?</div>
-            <div class="ans-box hidden">정답: 플로우 스위치 (Flow Switch, 유량스위치)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q058</div>
-            <div class="q-text">회로의 전류가 흐르고 있는지, 혹은 이상이 생겼는지 눈으로 확인하기 위해 사용하는 표시 장치는?</div>
-            <div class="ans-box hidden">정답: 표시등 (Pilot Lamp)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q059</div>
-            <div class="q-text">과전류나 이상 발생 시 소리로 작업자에게 위험을 알리는 경보 기기는?</div>
-            <div class="ans-box hidden">정답: 부저 (Buzzer)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q060</div>
-            <div class="q-text">전동기(모터)의 회전 방향을 바꾸기 위해 3상 전원 중 몇 상을 서로 바꾸어 연결해야 하는가?</div>
-            <div class="ans-box hidden">정답: 2상</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q061</div>
-            <div class="q-text">전기 회로의 단선(끊어짐) 유무나 저항을 측정할 때 주로 사용하는 휴대용 계측기는?</div>
-            <div class="ans-box hidden">정답: 멀티테스터 (테스터기)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q062</div>
-            <div class="q-text">전선이나 전기 기기의 절연 상태(누전 여부)를 측정하기 위해 사용하는 절연저항계의 명칭은?</div>
-            <div class="ans-box hidden">정답: 메거 (Megger)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q063</div>
-            <div class="q-text">회로의 전선을 끊지 않고 집게 형태로 전선에 걸어서 전류를 측정하는 계측기는?</div>
-            <div class="ans-box hidden">정답: 후크메터 (클램프 메터)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q064</div>
-            <div class="q-text">누전 및 감전 사고를 방지하기 위해 전기 기기의 금속제 외함을 땅과 연결하는 조치는?</div>
-            <div class="ans-box hidden">정답: 접지 (Earthing / Grounding)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q065</div>
-            <div class="q-text">전기 회로에 규정 값 이상의 과전류가 흐르면 스스로 녹아 끊어짐으로써 회로를 보호하는 부품은?</div>
-            <div class="ans-box hidden">정답: 퓨즈 (Fuse)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q066</div>
-            <div class="q-text">전기적 에너지를 기계적 회전 에너지로 변환하는 장치는?</div>
-            <div class="ans-box hidden">정답: 전동기 (모터)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q067</div>
-            <div class="q-text">단상 유도전동기 중 기동 토크가 가장 크며 냉동기에 자주 사용되는 전동기 방식은?</div>
-            <div class="ans-box hidden">정답: 콘덴서 기동형 전동기</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q068</div>
-            <div class="q-text">3상 유도전동기의 기동 전류를 줄이기 위해 사용하는 대표적인 기동 방식은?</div>
-            <div class="ans-box hidden">정답: Y-△(와이델타) 기동 방식</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q069</div>
-            <div class="q-text">Y-△ 기동 방식을 사용하면 직입 기동에 비해 기동 전류가 몇 배로 줄어드는가?</div>
-            <div class="ans-box hidden">정답: 1/3 배</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q070</div>
-            <div class="q-text">Y-△ 기동을 할 때, 기동 시에는 무슨 결선으로 시작하는가?</div>
-            <div class="ans-box hidden">정답: Y(와이) 결선</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q071</div>
-            <div class="q-text">Y-△ 기동에서 모터가 정상 회전 속도에 도달하면 무슨 결선으로 전환되는가?</div>
-            <div class="ans-box hidden">정답: △(델타) 결선</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q072</div>
-            <div class="q-text">릴레이 내부에서 자력을 발생시키는 철심에 감겨 있는 전선 뭉치를 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 코일 (Coil)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q073</div>
-            <div class="q-text">전압을 높이거나 낮추기 위해 사용하는 전력 변환 장치는?</div>
-            <div class="ans-box hidden">정답: 변압기 (트랜스포머)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q074</div>
-            <div class="q-text">빛을 감지하여 어두워지면 자동으로 켜지는 조명 제어 등에 사용되는 광전 소자는?</div>
-            <div class="ans-box hidden">정답: CdS (황화카드뮴 셀)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q075</div>
-            <div class="q-text">접점의 개폐 시 발생하는 불꽃(아크)을 소멸시켜 접점을 보호하는 회로는?</div>
-            <div class="ans-box hidden">정답: 서지 흡수 회로 (스나버 회로)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q076</div>
-            <div class="q-text">가장 일반적인 회로도로, 시퀀스 제어의 동작 논리를 한눈에 보기 쉽게 세로 방향 또는 가로 방향으로 전개하여 그린 도면은?</div>
-            <div class="ans-box hidden">정답: 전개도 (스켈레톤 디아그램)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q077</div>
-            <div class="q-text">전기기기 배선 시 전선의 끝부분에 압착하여 단자대에 단단히 고정하기 위해 사용하는 부품은?</div>
-            <div class="ans-box hidden">정답: 압착단자 (터미널)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q078</div>
-            <div class="q-text">전선의 겉을 감싸고 있는 절연 피복을 벗겨내는 공구는?</div>
-            <div class="ans-box hidden">정답: 와이어 스트리퍼</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q079</div>
-            <div class="q-text">반도체 소자로, 한쪽 방향으로만 전류를 흐르게 하는 정류 작용을 하는 것은?</div>
-            <div class="ans-box hidden">정답: 다이오드 (Diode)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q080</div>
-            <div class="q-text">교류를 직류로 변환하는 회로을 무엇이라 하는가?</div>
-            <div class="ans-box hidden">정답: 정류 회로</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q081</div>
-            <div class="q-text">스위치를 조작하는 축의 회전 각도나 위치 제한에 도달했을 때 접점이 바뀌는 위치 검출용 스위치는?</div>
-            <div class="ans-box hidden">정답: 리미트 스위치 (Limit Switch)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q082</div>
-            <div class="q-text">냉동기 제어반 내부에 습기가 차는 것을 방지하기 위해 설치하는 소형 히터는?</div>
-            <div class="ans-box hidden">정답: 방습 히터 (스페이스 히터)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q083</div>
-            <div class="q-text">두 가지 서로 다른 금속의 접합점에 온도가 변하면 열전전력(전압)이 발생하는 원리를 이용한 온도센서는?</div>
-            <div class="ans-box hidden">정답: 열전대 (Thermocouple)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q084</div>
-            <div class="q-text">온도가 상승하면 저항 값이 감소하는 특성을 가진, 온도 측정 및 보정에 쓰이는 반도체 소자는?</div>
-            <div class="ans-box hidden">정답: 써미스터 (NTC Thermistor)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q085</div>
-            <div class="q-text">기동 장치 중 하나로, 전동기의 전원 전압을 직접 모두 인가하여 기동하는 방식은?</div>
-            <div class="ans-box hidden">정답: 직입 기동 (전전압 기동)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q086</div>
-            <div class="q-text">시퀀스 도면에서 'R', 'S', 'T' 또는 'L1', 'L2', 'L3'가 의미하는 전원은?</div>
-            <div class="ans-box hidden">정답: 3상 교류 전원</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q087</div>
-            <div class="q-text">시퀀스 회로에서 비상정지 스위치(Emergency Stop)는 주로 어떤 접점을 사용하는가?</div>
-            <div class="ans-box hidden">정답: B접점</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q088</div>
-            <div class="q-text">전선의 굵기를 나타내는 단위로, 단면적의 크기를 뜻하는 기호는?</div>
-            <div class="ans-box hidden">정답: mm² (스퀘어)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q089</div>
-            <div class="q-text">변압기나 코일의 내부 절연이 파괴되어 전선끼리 직접 맞닿아 저항이 0에 가깝게 되는 현상은?</div>
-            <div class="ans-box hidden">정답: 단락 (쇼트)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q090</div>
-            <div class="q-text">전류가 흐르는 도선이 자기장 속에서 받는 힘의 방향을 결정하는 법칙은?</div>
-            <div class="ans-box hidden">정답: 플레밍의 왼손 법칙</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q091</div>
-            <div class="q-text">자기장 내부에서 도선이 움직일 때 발생하는 유도기전력(전압)의 방향을 결정하는 법칙은?</div>
-            <div class="ans-box hidden">정답: 플레밍의 오른손 법칙</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q092</div>
-            <div class="q-text">전기 회로에서 한 점으로 흘러들어오는 전류의 합과 흘러나가는 전류의 합은 같다는 법칙은?</div>
-            <div class="ans-box hidden">정답: 키르히호프의 전류 법칙 (제1법칙)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q093</div>
-            <div class="q-text">임의의 폐회로에서 공급된 전압의 합은 전압강하의 총합과 같다는 법칙은?</div>
-            <div class="ans-box hidden">정답: 키르히호프의 전압 법칙 (제2법칙)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q094</div>
-            <div class="q-text">전선에 전류가 흐를 때 발생하는 열량은 전류의 제곱과 저항, 시간에 비례한다는 법칙은?</div>
-            <div class="ans-box hidden">정답: 줄의 법칙 (Joule's Law)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q095</div>
-            <div class="q-text">3상 유도전동기의 회전 속도를 변경하기 위해 제어하는 두 가지 주요 요소는 주파수와 이것이다. 무엇인가?</div>
-            <div class="ans-box hidden">정답: 극수 (Poles)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q096</div>
-            <div class="q-text">교류의 크기를 나타낼 때, 직류와 동일한 일을 하는 평균적인 효과를 가진 값으로 일반 계측기에 표시되는 값은?</div>
-            <div class="ans-box hidden">정답: 실효값 (RMS)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q097</div>
-            <div class="q-text">회로에 전류가 흐르고 있음을 소리로 알리거나 확인하기 위해 사용하는 전기적 벨은?</div>
-            <div class="ans-box hidden">정답: 차임 또는 부저</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q098</div>
-            <div class="q-text">시퀀스 제어 기구 번호 '49'가 의미하는 보호 계전기는?</div>
-            <div class="ans-box hidden">정답: 열동계전기 (THR) / 회전기기 과열계전기</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q099</div>
-            <div class="q-text">시퀀스 제어 기구 번호 '51'이 의미하는 보호 계전기는?</div>
-            <div class="ans-box hidden">정답: 과전류 계전기 (OCR)</div>
-        </div>
-    
-        <div class="q-box" onclick="toggleAns(this)">
-            <div class="q-num">Q100</div>
-            <div class="q-text">냉동공조 제어 회로의 안전 장치들은 주로 직렬로 연결되는가, 병렬로 연결되는가?</div>
-            <div class="ans-box hidden">정답: 직렬 연결 (하나라도 이상 시 전원 차단을 위함)</div>
-        </div>
-    
-        </div>
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q001</div>
+        <div class="q-text">전류에 의해 발생하는 열량은 전류의 제곱과 저항, 그리고 통전 시간에 비례한다는 법칙은?</div>
+        <div class="ans-box hidden">정답: 줄의 법칙 (Joule's law)</div>
     </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q002</div>
+        <div class="q-text">회로에 흐르는 전류의 크기는 가해진 전압에 비례하고 저항에 반비례한다는 전기 기초 법칙은?</div>
+        <div class="ans-box hidden">정답: 옴의 법칙 (Ohm's law)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q003</div>
+        <div class="q-text">회로망 중 임의의 접속점에 흘러들어오는 전류의 총합은 흘러나가는 전류의 총합과 같다는 법칙은?</div>
+        <div class="ans-box hidden">정답: 키르히호프의 제1법칙 (전류 법칙)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q004</div>
+        <div class="q-text">폐회로 회로망에서 인가된 전압의 합은 각 저항에서 발생하는 전압 강하의 총합과 같다는 법칙은?</div>
+        <div class="ans-box hidden">정답: 키르히호프의 제2법칙 (전압 법칙)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q005</div>
+        <div class="q-text">전압을 측정할 때 사용하는 전압계는 부하와 회로에 어떤 방식으로 연결해야 하는가?</div>
+        <div class="ans-box hidden">정답: 병렬 연결</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q006</div>
+        <div class="q-text">전류를 측정할 때 사용하는 전류계는 부하와 회로에 어떤 방식으로 연결해야 하는가?</div>
+        <div class="ans-box hidden">정답: 직렬 연결</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q007</div>
+        <div class="q-text">자기장 내에 있는 도선에 전류가 흐를 때 도선이 받는 힘의 방향을 결정하는 법칙으로, 전동기(모터)의 원리가 되는 것은?</div>
+        <div class="ans-box hidden">정답: 플레밍의 왼손 법칙</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q008</div>
+        <div class="q-text">자기장 내부에서 도선이 움직일 때 발생하는 유도기전력의 방향을 결정하는 법칙으로, 발전기의 원리가 되는 것은?</div>
+        <div class="ans-box hidden">정답: 플레밍의 오른손 법칙</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q009</div>
+        <div class="q-text">전자기 유도에 의해 발생하는 유도기전력은 자속의 변화를 방해하려는 방향으로 발생한다는 법칙은?</div>
+        <div class="ans-box hidden">정답: 렌츠의 법칙</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q010</div>
+        <div class="q-text">교류 회로에서 실제로 소비되어 열이나 동력 등 유효한 일을 하는 전력의 단위는?</div>
+        <div class="ans-box hidden">정답: W (와트) 또는 kW (유효전력)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q011</div>
+        <div class="q-text">전원에서 공급되는 전체 전력으로 전압과 전류의 단순 기하학적 곱을 뜻하는 전력과 그 단위는?</div>
+        <div class="ans-box hidden">정답: 피상전력, 단위는 VA 또는 kVA</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q012</div>
+        <div class="q-text">피상전력에 대한 유효전력의 비율을 의미하며, 전력이 얼마나 효율적으로 일로 변환되었는지 나타내는 값은?</div>
+        <div class="ans-box hidden">정답: 역률 (Power Factor)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q013</div>
+        <div class="q-text">코일과 같은 유도성 부하로 인해 전압보다 전류의 위상이 늦어지는 역률 상태를 무엇이라 하는가?</div>
+        <div class="ans-box hidden">정답: 지상 역률</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q014</div>
+        <div class="q-text">콘덴서와 같은 용량성 부하로 인해 전압보다 전류의 위상이 앞서는 역률 상태를 무엇이라 하는가?</div>
+        <div class="ans-box hidden">정답: 진상 역률</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q015</div>
+        <div class="q-text">유도성 모터 부하로 인해 저하된 역률을 개선하기 위해 부하와 병렬로 연결하는 전기 부품은?</div>
+        <div class="ans-box hidden">정답: 전력용 콘덴서 (진상 콘덴서)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q016</div>
+        <div class="q-text">전기를 축적하는 능력을 뜻하는 정전용량의 기본 단위는 무엇인가?</div>
+        <div class="ans-box hidden">정답: F (패럿, Farad)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q017</div>
+        <div class="q-text">물질에 전압을 가했을 때 전류가 얼마나 잘 흐르는지를 나타내는 지표인 전기전도도의 단위는?</div>
+        <div class="ans-box hidden">정답: ℧ (모, mho) 또는 S (시멘스)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q018</div>
+        <div class="q-text">두 종류의 서로 다른 금속선의 양 끝단을 접합하고 온도차를 주면 회로에 열기전력이 발생하는 현상은?</div>
+        <div class="ans-box hidden">정답: 제베크 효과 (열전대 온도계의 원리)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q019</div>
+        <div class="q-text">두 종류의 금속 접합점에 직류 전류를 흘리면 전류의 방향에 따라 한쪽은 흡열, 다른 쪽은 발열이 일어나는 현상은?</div>
+        <div class="ans-box hidden">정답: 펠티에 효과 (전자냉동 및 반도체 소형 냉장고의 원리)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q020</div>
+        <div class="q-text">동일한 금속선에 온도 구배가 있을 때 전류를 흘리면 열의 흡수 또는 발생이 일어나는 현상은?</div>
+        <div class="ans-box hidden">정답: 톰슨 효과</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q021</div>
+        <div class="q-text">냉동기 모터의 절연 상태나 누전 여부를 판단하기 위해 메가옴(MΩ) 단위의 높은 저항을 측정하는 계측기는?</div>
+        <div class="ans-box hidden">정답: 메거 (Megger / 절연저항계)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q022</div>
+        <div class="q-text">가동 중인 냉동기 전선을 절단하거나 피복을 벗기지 않고, 집게 형태로 물려서 전류를 안전하게 측정하는 계측기는?</div>
+        <div class="ans-box hidden">정답: 훅온 메터 (Clamp Meter)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q023</div>
+        <div class="q-text">물질의 온도 변화에 따라 전기 저항이 급격하게 변하는 반도체 소자로, 냉동기의 온도 센서로 널리 쓰이는 것은?</div>
+        <div class="ans-box hidden">정답: 써미스터 (Thermistor)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q024</div>
+        <div class="q-text">빛을 비추면 저항값이 감소하는 성질을 가진 반도체 소자로, 보일러의 화염 유무를 검출하는 광전관 센서 등에 쓰이는 것은?</div>
+        <div class="ans-box hidden">정답: CdS 셀 (황화카드뮴 소자)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q025</div>
+        <div class="q-text">게이트(G) 신호에 의해 전류를 On/Off 제어할 수 있는 단방향 3단자 제어용 반도체 소자로 소형 인버터에 단골로 쓰이는 것은?</div>
+        <div class="ans-box hidden">정답: SCR (실리콘 제어 정류기)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q026</div>
+        <div class="q-text">교류 전원을 양방향으로 제어할 수 있는 3단자 반도체 무접점 스위칭 소자로 무단 속도 조절기에 쓰이는 부품은?</div>
+        <div class="ans-box hidden">정답: 트라이액 (TRIAC)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q027</div>
+        <div class="q-text">회로에 역방향 높은 전압이 걸려도 특정 전압(항복 전압)에서 전압을 일정하게 유지시켜 주어 정전압 회로에 필수적인 다이오드는?</div>
+        <div class="ans-box hidden">정답: 제너 다이오드 (Zener Diode)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q028</div>
+        <div class="q-text">출력 신호의 일부를 다시 입력 측으로 되돌려 보내어 오차를 수정하고 목표값과 비교 제어하는 자동제어 방식은?</div>
+        <div class="ans-box hidden">정답: 피드백 제어 (Feedback Control / 폐루프 제어)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q029</div>
+        <div class="q-text">피드백 제어 시스템의 상태를 교란하여 제어 목표값을 벗어나게 만드는 원치 않는 외부의 간섭 자극 신호는?</div>
+        <div class="ans-box hidden">정답: 외란 (Disturbance)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q030</div>
+        <div class="q-text">피드백 제어계의 기본 구성 중 기준 입력과 주피드백 신호의 차이를 계산하는 물리적 부위는?</div>
+        <div class="ans-box hidden">정답: 비교부</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q031</div>
+        <div class="q-text">피드백 제어계의 구성 요소 중 오차 신호를 받아서 제어 대상이 작동할 수 있도록 증폭 및 연산 처리를 담당하는 '제어 요소'는 무엇과 무엇의 조합인가?</div>
+        <div class="ans-box hidden">정답: 조절부 + 조작부</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q032</div>
+        <div class="q-text">제어 요소가 제어 대상(플랜트)에 인가하는 출력 신호로, 프로세스의 물리적 상태를 바꾸기 위해 주입하는 에너지의 양은?</div>
+        <div class="ans-box hidden">정답: 조작량</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q033</div>
+        <div class="q-text">제어 대상의 현재 출력값을 측정하여 다시 비교부로 전달하는 센서 장치 계통 부위는?</div>
+        <div class="ans-box hidden">정답: 검출부</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q034</div>
+        <div class="q-text">선박의 조타 장치나 항공기의 유도 장치처럼 제어 대상의 '위치, 방위, 자세, 각도' 등을 추종하도록 설계된 자동제어 장치는?</div>
+        <div class="ans-box hidden">정답: 서보 기구 (Servo Mechanism)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q035</div>
+        <div class="q-text">공조냉동 설비에서 흔히 볼 수 있는 '온도, 습도, 압력, 유량, 농도' 등 공업적 프로세스 상태를 제어량으로 취급하는 자동제어는?</div>
+        <div class="ans-box hidden">정답: 프로세스 제어 (Process Control)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q036</div>
+        <div class="q-text">회전 속도, 기기의 주파수, 전압, 전류 등을 제어량으로 제어하며 응답 주기가 매우 신속한 제어 시스템은?</div>
+        <div class="ans-box hidden">정답: 자동 조정 (Automatic Regulation)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q037</div>
+        <div class="q-text">무인 열차 구동이나 엘리베이터 승강 제어처럼 제어 목표값이 미리 정해진 시간 규칙에 따라 변하는 제어 방식은?</div>
+        <div class="ans-box hidden">정답: 프로그램 제어</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q038</div>
+        <div class="q-text">추적 레이더나 미사일 유도처럼 목표값이 예측할 수 없이 시간에 따라 지속적으로 임의 가변하는 형태의 제어 방식은?</div>
+        <div class="ans-box hidden">정답: 추치 제어</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q039</div>
+        <div class="q-text">오차의 크기에 직접 비례하여 조작량을 부드럽게 연속 제어하는 방식으로, 단순하지만 오차가 완전히 사라지지 않고 남는 제어는?</div>
+        <div class="ans-box hidden">정답: 비례 동작 (P 동작)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q040</div>
+        <div class="q-text">비례 동작(P 동작)에서 제어가 완료된 후에도 목표값과 최종 결과값 사이에 영구적으로 남게 되는 작은 잔류 오차를 일컫는 제어 용어는?</div>
+        <div class="ans-box hidden">정답: 오프셋 (Offset)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q041</div>
+        <div class="q-text">누적 오차를 지속적으로 적분 연산하여 조작량을 생성함으로써 비례 제어의 취약점인 '오프셋(잔류 오차)'을 완전히 소멸시키는 제어 동작은?</div>
+        <div class="ans-box hidden">정답: 적분 동작 (I 동작)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q042</div>
+        <div class="q-text">오차가 변화하는 속도를 예측하여 미분 연산 조작량을 가하는 제어로, 오차가 급격히 커지는 것을 방지하며 제어계의 '속응성'을 극대화하는 동작은?</div>
+        <div class="ans-box hidden">정답: 미분 동작 (D 동작)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q043</div>
+        <div class="q-text">미분 동작(D 동작)은 제어계의 속응성을 높여주지만, 단독으로 제어 장치를 구성할 수 있는가?</div>
+        <div class="ans-box hidden">정답: 불가능하다 (반드시 P 또는 PI 제어와 병합하여 PD, PID 형태로만 가동 가능)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q044</div>
+        <div class="q-text">잔류 오차가 존재하지 않고 구조적 진동 성능의 감쇄 능력이 우수하며 안정성과 속응성을 모두 구비한 최적의 조합 제어 동작은?</div>
+        <div class="ans-box hidden">정답: 비례 적분 미분 동작 (PID 동작)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q045</div>
+        <div class="q-text">조작량이 최대(ON) 또는 최소(OFF)의 비연속적인 두 가지 상태값만을 가지며 소형 냉장고 등에 흔히 쓰이는 간이 제어 동작은?</div>
+        <div class="ans-box hidden">정답: 2위치 동작 (ON-OFF 동작)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q046</div>
+        <div class="q-text">ON-OFF 제어에서 릴레이 스위치가 너무 빈번하게 켜고 닫혀 장치가 마모되는 것을 막기 위해 상한과 하한 사이에 의도적으로 설정하는 동작 간격은?</div>
+        <div class="ans-box hidden">정답: 동작 틈새 (차동 / 디퍼렌셜)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q047</div>
+        <div class="q-text">입력 신호가 감지되어 조작 장치에 전달될 때까지 소요되는 순수한 시간적 지연 또는 기계적 이송 거리에 기인하는 불감 영역 시간은?</div>
+        <div class="ans-box hidden">정답: 낭비 시간 (부동 시간 / Dead Time)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q048</div>
+        <div class="q-text">자동제어 배관 밸브 중 소형 모터를 내부 구동축에 부착하여 전기 신호에 의거 직접 회전각을 제어하여 개폐하는 조작 장치는?</div>
+        <div class="ans-box hidden">정답: 전동 밸브 (Motor Operated Valve)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q049</div>
+        <div class="q-text">미리 수립된 시퀀스 도면 조건에 따라 제어의 전 과정을 순차적으로 단계를 밟아가며 구동하는 제어로 개루프 제어에 속하는 제어 방식은?</div>
+        <div class="ans-box hidden">정답: 시퀀스 제어 (Sequence Control)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q050</div>
+        <div class="q-text">시퀀스 회로 중 평상시에는 스프링에 의해 열려있다가 수동 조작을 가하거나 전류가 통하면 회로를 연결하는(닫히는) 접점의 명칭은?</div>
+        <div class="ans-box hidden">정답: A 접점 (메이크 접점 / 평상시 열린 접점)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q051</div>
+        <div class="q-text">평상시에는 밀착되어 닫혀있다가 외부 조작력이나 신호 전류가 가해지면 즉시 회로를 개방하는(열리는) 접점의 명칭은?</div>
+        <div class="ans-box hidden">정답: B 접점 (브레이크 접점 / 평상시 닫힌 접점)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q052</div>
+        <div class="q-text">누름 버튼 수동 스위치에서 손을 일시적으로 떼더라도 릴레이 자신의 보조 A접점을 병렬로 이용하여 통전 상태를 계속 유지시키는 시퀀스 기본 회로는?</div>
+        <div class="ans-box hidden">정답: 자기 유지 회로 (Self Holding Circuit)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q053</div>
+        <div class="q-text">동시 투입 시 정면 단락 등의 사고 위험이 있는 대향 기기(예: 정회전과 역회전 릴레이)를 구동할 때 서로의 B접점을 상대방 회로에 교차 직렬로 연결해 주는 절대 동시 구동 금지 안전 회로는?</div>
+        <div class="ans-box hidden">정답: 인터록 회로 (Interlock Circuit / 상호 결쇄 회로)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q054</div>
+        <div class="q-text">모터에 과부하가 지속 발생하여 비정상 과전류가 통과할 때 바이메탈의 열변형 굽힘 현상을 활용하여 모터 동력선을 강제 차단하는 기기는?</div>
+        <div class="ans-box hidden">정답: 열동계전기 (THR / Overload Relay)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q055</div>
+        <div class="q-text">작은 전압 신호를 인가하여 전자석 코일을 자화시킴으로써 기계적으로 다수의 주접점 및 보조 접점을 일괄 변환 개폐하는 전기적 스위칭 부품은?</div>
+        <div class="ans-box hidden">정답: 전자기 계전기 (릴레이 / Relay)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q056</div>
+        <div class="q-text">공조기 팬이나 대형 냉동 압축기 모터 같은 고전력 부하 회로의 전원을 직접 인가하고 소호 능력이 있는 주접점을 내장한 동력 전용 스위치 장치는?</div>
+        <div class="ans-box hidden">정답: 전자접촉기 (MC / Magnetic Contactor)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q057</div>
+        <div class="q-text">전기 신호 입력이 들어온 즉시 반응하지 않고 사용자가 사전에 눈금으로 세팅해 둔 지연 시간이 경과한 후 비로소 접점이 작동하는 한시 계전기는?</div>
+        <div class="ans-box hidden">정답: 타이머 (Timer)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q058</div>
+        <div class="q-text">타이머의 부품 접점 기호 중 신호가 들어왔을 때는 셋팅 시간 후 동작하고(On-Delay), 신호가 떨어질 때는 즉시 복귀하는 접점 기호의 외형적 특징은?</div>
+        <div class="ans-box hidden">정답: 접점 막대기 끝부분에 '삼각형 모양(깃발)'이 부착되어 있음</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q059</div>
+        <div class="q-text">두 개 또는 그 이상의 입력 조건이 일제히 모두 1(On) 상태를 만족할 때에만 비로소 출력을 내보내는 전기 회로 형태 및 논리 게이트는?</div>
+        <div class="ans-box hidden">정답: AND 회로 (논리곱 / 직렬 연결 구성)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q060</div>
+        <div class="q-text">복수의 신호 입력 요건 중 어느 단 한 개라도 1(On) 상태가 충족되면 지체 없이 결과 출력을 송출하는 회로 구성 및 논리 게이트는?</div>
+        <div class="ans-box hidden">정답: OR 회로 (논리합 / 병렬 연결 구성)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q061</div>
+        <div class="q-text">입력되는 신호의 상태값을 완전히 정반대로 반전하여 출력하는 게이트로 시퀀스에서 B접점의 개념과 일치하는 논리 회로는?</div>
+        <div class="ans-box hidden">정답: NOT 회로 (논리 부정 / 인버터)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q062</div>
+        <div class="q-text">반도체 논리 소자를 채택한 '무접점 시퀀스'가 릴레이 기반의 '유접점 시퀀스' 회로와 대조했을 때 누리는 가장 강력한 기술적 우위 요소는?</div>
+        <div class="ans-box hidden">정답: 기계적 접점 마모가 없어 수명이 반영구적이며 응답 속도가 현격히 빠르다</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q063</div>
+        <div class="q-text">공장 설비 및 공조기 빌딩 제어에 중추적인 역할을 하며 내부 컴퓨터 메모리에 탑재된 소프트웨어 래더 프로그램을 수정하여 제어 시퀀스를 변경하는 범용 연산 컨트롤러 장치는?</div>
+        <div class="ans-box hidden">정답: PLC (Programmable Logic Controller)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q064</div>
+        <div class="q-text">삼상 유도전동기를 기동할 때 초기 기동 전류를 평상시 직입 기동의 3분의 1 수준으로 억제하기 위해 결선을 조합하여 사용하는 감압 기동법은?</div>
+        <div class="ans-box hidden">정답: 와이 델타 (Y-Δ) 기동법</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q065</div>
+        <div class="q-text">삼상 유도전동기의 회전 방향을 완전히 정반대로 역전(역회전) 구동시키고자 할 때 동력선 배선 전선 중 몇 선을 서로 맞바꿔 결선해야 하는가?</div>
+        <div class="ans-box hidden">정답: 삼상 전력선 중 임의의 두 선(2선)을 서로 바꾼다</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q066</div>
+        <div class="q-text">교류 전원의 전압 및 전류 파형이 평사 시 부드러운 사인파 곡선을 나타낼 때, 파형의 가장 높은 정점의 위치에 해당하는 수치값은?</div>
+        <div class="ans-box hidden">정답: 최댓값 (Maximum value)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q067</div>
+        <div class="q-text">일반 가정에 공급되는 상용 교류 전력의 극성이 초당 왕복하여 바뀌는 횟수를 뜻하는 주파수의 표준 단위는 무엇인가?</div>
+        <div class="ans-box hidden">정답: Hz (헤르츠)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q068</div>
+        <div class="q-text">전류가 흐르면 코일 주위에 자기장이 생성되며 자속을 유도해내는 능력을 뜻하는 인덕턴스의 기본 단위는?</div>
+        <div class="ans-box hidden">정답: H (헨리)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q069</div>
+        <div class="q-text">변압기의 1차측 코일 감은 횟수와 2차측 코일 감은 횟수의 비율에 의거하여 전압이 변한다는 변압기 동작의 핵심 원리 비율 공식은?</div>
+        <div class="ans-box hidden">정답: 권수비 (Turn ratio)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q070</div>
+        <div class="q-text">전원 주파수를 자유자재로 인버터 가변 제어하여 모터의 동력 회전 속도를 무단 제어할 수 있는 압축기 모터 가동 제어 제어 장치는?</div>
+        <div class="ans-box hidden">정답: 인버터 (Inverter 제어 장치)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q071</div>
+        <div class="q-text">교류 회로에서 저항(R)과 코일의 리액턴스(X) 성분을 한데 합친 전체 회로의 합성 저항 성분을 지칭하는 용어는?</div>
+        <div class="ans-box hidden">정답: 임피던스 (Impedance, 단위는 Ω)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q072</div>
+        <div class="q-text">시퀀스 제어 회로 도면에서 전자기 접촉기 기호의 약어로 흔히 'MC'를 사용하는데, 'THR'은 무엇을 명시하는가?</div>
+        <div class="ans-box hidden">정답: 열동계전기</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q073</div>
+        <div class="q-text">공조기 덕트 및 보일러 화염 과열 시 안전을 도모하기 위해 사전에 설정된 특정 한계 온도 도달 시 접점을 끊어버리는 온도 스위치는?</div>
+        <div class="ans-box hidden">정답: 서모스탯 (Thermostat / 온도조절기)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q074</div>
+        <div class="q-text">기계 가공품의 이동 중 정해진 행정 끝단에 물리적으로 부딪히면 레버가 꺾이면서 접점이 작동하는 전기식 검출 스위치는?</div>
+        <div class="ans-box hidden">정답: 리미트 스위치 (Limit Switch / 위치 제한 스위치)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q075</div>
+        <div class="q-text">교류 전기 에너지를 직류 전기 에너지 형태로 일방향 정류 변환할 때 필수적으로 채택하는 가장 대중적인 다이오드 정류 회로 구조는?</div>
+        <div class="ans-box hidden">정답: 브릿지 정류 회로</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q076</div>
+        <div class="q-text">전선로에 사람이 직접 접촉하여 미세 전류가 인체로 새어 나갈 때, 대지와의 전류 균형 불일치를 빛의 속도로 연산하여 회로를 차단하는 안전장치는?</div>
+        <div class="ans-box hidden">정답: 누전차단기 (ELB)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q077</div>
+        <div class="q-text">교류 전력의 유효 전력량을 누적 기록 계측하는 적산 전력계의 수평 원판은 어떤 전기적 원리에 기인하여 회전 구동하는가?</div>
+        <div class="ans-box hidden">정답: 아라고의 원판 (와전류 원리)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q078</div>
+        <div class="q-text">어떤 물체에 걸리는 전하의 양이 많아져 공간적으로 불꽃을 튀기며 방전하거나 다른 물체로 전류가 불시에 흐르는 정전기 유도 현상은?</div>
+        <div class="ans-box hidden">정답: 정전 유도 현상</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q079</div>
+        <div class="q-text">제어 기기 번호 체계 중 '27'번 숫자가 지시하는 계전기의 정식 기능 명칭은?</div>
+        <div class="ans-box hidden">정답: 부족전압 계전기 (UVR)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q080</div>
+        <div class="q-text">제어 기기 번호 체계 중 '51'번 숫자가 배전반 설계 도면상 가리키는 계전기의 정식 명칭은?</div>
+        <div class="ans-box hidden">정답: 과전류 계전기 (OCR)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q081</div>
+        <div class="q-text">자기 유지 회로를 해제하고 시퀀스 연산 제어계 전체를 강제 초기 정지 상태로 돌리고자 할 때 푸시버튼은 어떤 접점을 써야 하는가?</div>
+        <div class="ans-box hidden">정답: B 접점 (직렬 연결된 정지 버튼)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q082</div>
+        <div class="q-text">동력 제어반 전면에 기기 정지 상태임을 사용자에게 각인시키기 위해 보편적으로 등화 점등하는 표시등의 표준 색상은?</div>
+        <div class="ans-box hidden">정답: 녹색 등 (Green Lamp)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q083</div>
+        <div class="q-text">압축기 모터가 완전 가동 실행 상태에 진입했음을 수동 감시자에게 전달하기 위해 표준 배전반 전면에 켜는 표시등 색상은?</div>
+        <div class="ans-box hidden">정답: 적색 등 (Red Lamp)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q084</div>
+        <div class="q-text">회로 저항에 직류 100V 전압을 가했더니 5A의 전류가 유입되었다면, 이 회로가 가진 순수 저항값은 몇 옴(Ω)인가?</div>
+        <div class="ans-box hidden">정답: 20 옴 (R = V / I)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q085</div>
+        <div class="q-text">10옴 저항 두 개를 서로 일렬로 끊어짐 없이 곧바로 이어서 배치했을 때 얻어지는 전체 합성 저항값은?</div>
+        <div class="ans-box hidden">정답: 20 옴 (직렬 저항은 단순 합산)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q086</div>
+        <div class="q-text">10옴 저항 두 개를 서로 나란하게 가로질러 나란히 마주 보게 가설했을 때 산출되는 최종 병렬 합성 저항값은?</div>
+        <div class="ans-box hidden">정답: 5 옴 (병렬 결선 시 저항은 절반으로 감소)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q087</div>
+        <div class="q-text">반도체 소자인 다이오드의 본연의 순수한 소자 기능으로 교류 전압의 한쪽 성분만을 통과시키는 필터 같은 작용 명칭은?</div>
+        <div class="ans-box hidden">정답: 정류 작용</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q088</div>
+        <div class="q-text">변압기 내부 철심에서 자속 변화에 의해 불필요하게 발생하는 소용돌이 형태의 전류 손실로 기기 발열의 원인이 되는 손실은?</div>
+        <div class="ans-box hidden">정답: 와전류 손실 (맴돌이 전류 손)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q089</div>
+        <div class="q-text">변압기 내부의 자성체가 교류 자장에 의해 자화될 때 발생하는 자성 분자간 마찰 손실을 일컫는 전력 손실 용어는?</div>
+        <div class="ans-box hidden">정답: 히스테리시스 손실</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q090</div>
+        <div class="q-text">변압기의 코일 저항이나 철심 손실에 기인하여 발생하는 기계 열 손실을 줄이고 절연을 확보하기 위해 변압기 케이스 내부에 채우는 기름은?</div>
+        <div class="ans-box hidden">정답: 변압기유 (절연유)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q091</div>
+        <div class="q-text">유도전동기의 동기 회전 속도와 실제 로터 축의 물리적 기계 회전 속도와의 미세한 속도 차이 비율을 뜻하는 전기 용어는?</div>
+        <div class="ans-box hidden">정답: 슬립 (Slip)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q092</div>
+        <div class="q-text">공조기 내부 물탱크나 증발기 드레인 팬의 수위가 일정 한계 이상 차오르면 전극봉 간 통전 전류를 검출해 모터를 구동시키는 스위치는?</div>
+        <div class="ans-box hidden">정답: 플로트리스 스위치 (수위 조절 스위치)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q093</div>
+        <div class="q-text">전기 기기의 비정상 누전 시 인체로 흐르는 전기 유입 충격을 방지하기 위해 기기 금속 외함을 대지(땅)와 전선으로 연결하는 조치는?</div>
+        <div class="ans-box hidden">정답: 접지 (Earthing / Grounding)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q094</div>
+        <div class="q-text">공조용 축냉식 시스템 등에서 사용 주간 전력 비용을 줄이기 위해 심야의 저렴한 전력 요금 시간대에 빙축열 조를 얼리는 제어법은?</div>
+        <div class="ans-box hidden">정답: 심야 전력 제어 (빙축열 가동 제어)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q095</div>
+        <div class="q-text">동기 발전기나 동기 전동기에서 회전 자계의 속도를 결정하는 두 가지 주요 요소는 주파수와 무엇인가?</div>
+        <div class="ans-box hidden">정답: 극수 (Poles)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q096</div>
+        <div class="q-text">교류의 크기를 나타낼 때, 직류와 동일한 일을 하는 평균적인 효과를 가진 값으로 일반 계측기에 표시되는 값은?</div>
+        <div class="ans-box hidden">정답: 실효값 (RMS)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q097</div>
+        <div class="q-text">회로에 전류가 흐르고 있음을 소리로 알리거나 확인하기 위해 사용하는 전기적 벨은?</div>
+        <div class="ans-box hidden">정답: 차임 또는 부저</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q098</div>
+        <div class="q-text">시퀀스 제어 기구 번호 '49'가 의미하는 보호 계전기는?</div>
+        <div class="ans-box hidden">정답: 열동계전기 (THR) / 회전기기 과열계전기</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q099</div>
+        <div class="q-text">피드백 제어 시스템에서 제어 대상의 상태를 측정하여 조절부로 보내는 신호 통로를 무엇이라 하는가?</div>
+        <div class="ans-box hidden">정답: 피드백 루프 (검출부)</div>
+    </div>
+
+    <div class="q-box" onclick="toggleAns(this)">
+        <div class="q-num">Q100</div>
+        <div class="q-text">미리 정해진 순서나 조건에 따라 제어의 각 단계를 순차적으로 진행하는 제어 방식으로, 냉동기 기동 시퀀스 등에 쓰이는 제어는?</div>
+        <div class="ans-box hidden">정답: 시퀀스 제어 (순차 제어)</div>
+    </div>
+
+</div>
+
+<script>
+    // 개별 문제 박스를 클릭했을 때 정답을 토글하는 함수
+    function toggleAns(qBoxElement) {
+        var ansBox = qBoxElement.querySelector('.ans-box');
+        if (ansBox) {
+            ansBox.classList.toggle('hidden');
+        }
+    }
+
+    // 모든 정답 박스를 한 번에 다 보여주는 함수
+    function showAllAns() {
+        var allAns = document.querySelectorAll('.ans-box');
+        allAns.forEach(function(box) {
+            box.classList.remove('hidden');
+        });
+    }
+
+    // 모든 정답 박스를 한 번에 다 숨기는 함수
+    function hideAllAns() {
+        var allAns = document.querySelectorAll('.ans-box');
+        allAns.forEach(function(box) {
+            box.classList.add('hidden');
+        });
+    }
+</script>
+
 </body>
 </html>
