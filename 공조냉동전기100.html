@@ -88,11 +88,6 @@
 <div class="container">
     <h1>⚡ 공조냉동기능사 전기분야 핵심 100제</h1>
 
-    <div class="nav-buttons">
-        <button class="btn" onclick="showAllAns()">정답 모두 보이기</button>
-        <button class="btn" onclick="hideAllAns()">정답 모두 숨기기</button>
-    </div>
-
     <div class="q-box" onclick="toggleAns(this)">
         <div class="q-num">Q001</div>
         <div class="q-text">전류에 의해 발생하는 열량은 전류의 제곱과 저항, 그리고 통전 시간에 비례한다는 법칙은?</div>
@@ -704,21 +699,6 @@
         }
     }
 
-    // 모든 정답 박스를 한 번에 다 보여주는 함수
-    function showAllAns() {
-        var allAns = document.querySelectorAll('.ans-box');
-        allAns.forEach(function(box) {
-            box.classList.remove('hidden');
-        });
-    }
-
-    // 모든 정답 박스를 한 번에 다 숨기는 함수
-    function hideAllAns() {
-        var allAns = document.querySelectorAll('.ans-box');
-        allAns.forEach(function(box) {
-            box.classList.add('hidden');
-        });
-    }
 </script>
 
 </body>
