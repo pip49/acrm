@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공조냉동기계기능사 - 냉동공학 핵심 100제</title>
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --container-bg: #ffffff;
+            --text-color: #334155;
+            --text-dark: #0f172a;
+            --primary-color: #0284c7;
+            --primary-light: #e0f2fe;
+            --accent-color: #ea580c;
+            --border-color: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        header h1 { font-size: 24px; color: var(--text-dark); margin-bottom: 8px; }
+        .meta-info { font-size: 14px; color: #64748b; }
+        .meta-info span { color: var(--accent-color); font-weight: bold; }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--text-dark);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .sub-section {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .concept-list { list-style-type: none; }
+        .concept-list > li {
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 15px;
+        }
+        .concept-list > li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+        .quiz-toggle-btn {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .quiz-answer-box {
+            display: none;
+            margin-top: 8px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: #c2410c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* 다크모드 스타일 */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --container-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --text-dark: #f8fafc;
+            --primary-color: #38bdf8;
+            --primary-light: #0c4a6e;
+            --border-color: #334155;
+        }
+        body.dark-mode .sub-section { background: #111827; }
+        body.dark-mode .quiz-answer-box { background-color: #0f172a; color: #fb923c; }
+
+        /* 토글 버튼 고정 스타일 */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        body.dark-mode .theme-toggle-btn { background-color: #e2e8f0; color: #0f172a; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>냉동공학 주관식/필답형 고 빈출 100제</h1>
+        <div class="meta-info">공조냉동기계기능사 합격 마스터 | 총 <span>100문항</span> 완성</div>
+    </header>
+
+    <h2 class="section-title">PART 1. 기초 열역학 및 냉동의 원리 (1 ~ 20)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q1. 물질의 상태 변화 없이 온도만 변화할 때 출입하는 열량은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 현열 (Sensible heat)</div>
+            </li>
+            <li>
+                <strong>Q2. 물질의 온도 변화 없이 상태 변화(증발, 융해 등)에만 소비되는 열량은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 잠열 (Latent heat)</div>
+            </li>
+            <li>
+                <strong>Q3. 0℃의 물 1ton을 24시간 동안에 0℃의 얼음으로 만드는 냉동능력을 정의하는 단위는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 냉동톤 (RT 또는 냉동ton)</div>
+            </li>
+            <li>
+                <strong>Q4. 한국/일본 기준 1 냉동톤(1 RT)은 몇 kcal/h 인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 3,320 kcal/h</div>
+            </li>
+            <li>
+                <strong>Q5. 미국 기준 1 냉동톤(1 USRT)은 약 몇 kcal/h 인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 3,024 kcal/h</div>
+            </li>
+            <li>
+                <strong>Q6. 물의 증발잠열은 1kg당 약 몇 kcal 인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 539 kcal/kg</div>
+            </li>
+            <li>
+                <strong>Q7. 얼음의 융해잠열은 1kg당 약 몇 kcal 인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 79.68 kcal/kg (약 80 kcal/kg)</div>
+            </li>
+            <li>
+                <strong>Q8. 물의 비열은 얼마인가? (단위 포함)</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 1 kcal/kg·℃</div>
+            </li>
+            <li>
+                <strong>Q9. "두 물체가 각각 제3의 물체와 열평형 상태에 있으면, 그 두 물체도 서로 열평형 상태에 있다"는 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열역학 제0법칙 (열평형의 법칙)</div>
+            </li>
+            <li>
+                <strong>Q10. 열과 일은 본질적으로 동일하며 상호 변환이 가능하다는 '에너지 보존의 법칙'을 나타내는 열역학 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열역학 제1법칙</div>
+            </li>
+            <li>
+                <strong>Q11. 열은 스스로 저온의 물체에서 고온의 물체로 이동할 수 없다는 비가역성과 방향성을 규정한 열역학 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열역학 제2법칙</div>
+            </li>
+            <li>
+                <strong>Q12. 절대영도(-273.15℃)에서 모든 완전 결정 상태 물질의 엔트로피는 0이 된다는 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열역학 제3법칙</div>
+            </li>
+            <li>
+                <strong>Q13. 압력이 일정할 때, 기체의 체적은 절대온도에 비례한다는 기체 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 샤를의 법칙</div>
+            </li>
+            <li>
+                <strong>Q14. 온도가 일정할 때, 기체의 체적은 절대압력에 반비례한다는 기체 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 보일의 법칙</div>
+            </li>
+            <li>
+                <strong>Q15. 혼합 기체의 전압력은 각 성분 기체의 분압의 합과 같다는 법칙은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 돌턴의 분압 법칙</div>
+            </li>
+            <li>
+                <strong>Q16. 표준 대기압(1 atm)을 수은주 높이(mmHg)로 나타내면 얼마인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 760 mmHg</div>
+            </li>
+            <li>
+                <strong>Q17. 게이지 압력에 대기압을 더한 압력을 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 절대 압력</div>
+            </li>
+            <li>
+                <strong>Q18. 물질의 내부 에너지를 정밀하게 측정하기 곤란하여, 내부 에너지에 유동 에너지를 더해 정의한 열역학적 양은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엔탈피 (Enthalpy)</div>
+            </li>
+            <li>
+                <strong>Q19. 물질의 무질서도를 나타내며, 자연계의 자발적 변화에서는 항상 증가하는 경향을 보이는 물리량은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엔트로피 (Entropy)</div>
+            </li>
+            <li>
+                <strong>Q20. 일(Work)의 열당량은 약 몇 kcal/kg·m 인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 1/427 (또는 0.00234)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 2. 냉동 사이클 및 성적계수 (21 ~ 40)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q21. 증기압축식 냉동 사이클의 핵심 4대 구성 요소를 순서대로 적으시오.</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 압축기 ➡️ 응축기 ➡️ 팽창밸브 ➡️ 증발기</div>
+            </li>
+            <li>
+                <strong>Q22. 2개의 등온과정과 2개의 단열과정으로 구성된 이상적인 최고 효율의 가역 열기관 사이클은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 카르노 사이클 (Carnot cycle)</div>
+            </li>
+            <li>
+                <strong>Q23. 냉동기의 효율을 뜻하며, '냉동능력'을 '압축기 일량'으로 나눈 값은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 성적계수 (COP)</div>
+            </li>
+            <li>
+                <strong>Q24. 냉동 사이클에서 팽창밸브를 통과할 때, 압력은 떨어지나 엔탈피는 변하지 않는 이 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 교조작업 (등엔탈피 팽창 / 교착 상태)</div>
+            </li>
+            <li>
+                <strong>Q25. 압축기 내부에서 냉매 가스가 압축될 때 변하지 않는 상태량은? (이상적 단열압축 기준)</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엔트로피 (등엔트로피 과정)</div>
+            </li>
+            <li>
+                <strong>Q26. 응축기에서 방출되는 열량은 '냉동능력'과 무엇의 합과 같은가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 압축기 일량 (소비전력 열량)</div>
+            </li>
+            <li>
+                <strong>Q27. 증발기 내부에서 냉매가 액체에서 기체로 변하는 동안 변하지 않는 두 가지 상태량은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 압력, 온도</div>
+            </li>
+            <li>
+                <strong>Q28. 냉동 사이클을 시각적으로 분석하기 위해 가로축은 엔탈피, 세로축은 압력으로 나타낸 선도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: p-h 선도 (몰리에르 선도)</div>
+            </li>
+            <li>
+                <strong>Q29. 흡수식 냉동기에서 기계식 압축기 대신 냉매 가스를 흡수 및 재생하기 위해 사용하는 핵심 3대 요소는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 흡수기, 발생기(재생기), 용액펌프</div>
+            </li>
+            <li>
+                <strong>Q30. 흡수식 냉동기에서 주로 사용되는 친환경 냉매와 흡수제 조합은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 물(냉매) - 리튬브로마이드(흡수제)</div>
+            </li>
+            <li>
+                <strong>Q31. 두 종류의 금속 결합점에 직류 전기를 흘리면 한쪽은 흡열, 한쪽은 발열이 일어나는 현상을 이용한 냉동법은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전자 냉동 (펠티어 효과)</div>
+            </li>
+            <li>
+                <strong>Q32. 증발 온도가 극도로 낮아 단단 압축이 불가능할 때, 비등점이 다른 냉매로 두 개의 사이클을 조합한 냉동 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이원 냉동 방식</div>
+            </li>
+            <li>
+                <strong>Q33. 냉동 사이클 중 증발기 출구에서 압축기 흡입구 사이의 배관 계통에 해당하는 압력은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 저압 (흡입 압력)</div>
+            </li>
+            <li>
+                <strong>Q34. 응축 압력을 흡입 압력으로 나눈 값으로, 이 값이 클수록 압축기의 체적효율이 저하되는 지표는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 압축비</div>
+            </li>
+            <li>
+                <strong>Q35. 냉매가 증발기에서 100% 가스가 된 후 주위로부터 열을 더 흡수하여 증발온도보다 높아진 상태의 가스는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 과열 증기</div>
+            </li>
+            <li>
+                <strong>Q36. 냉매 액체가 응축기에서 완전히 액화한 후 응축온도보다 더 낮게 냉각된 상태의 액체는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 과냉각 액</div>
+            </li>
+            <li>
+                <strong>Q37. 카르노 사이클의 열효율 공식은 대문자 T를 이용해 어떻게 나타내는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: (T1 - T2) / T1  (단, T1은 고온부, T2는 저온부 절대온도)</div>
+            </li>
+            <li>
+                <strong>Q38. 실제 냉동기의 성적계수는 이상적인 역카르노 사이클의 성적계수보다 항상 어떠한가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 작다</div>
+            </li>
+            <li>
+                <strong>Q39. 증반 온도와 응축 온도의 차이가 커질수록 냉동 사이클의 성적계수(COP)는 어떻게 변하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 낮아진다 (감소한다)</div>
+            </li>
+            <li>
+                <strong>Q40. 증기제트식 냉동기에서 냉매로 사용되는 물질은 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 물</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 3. 냉매 및 윤활유 (41 ~ 60)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q41. 암모니아(NH₃) 냉매의 냉매 기호 명칭은 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: R-717</div>
+            </li>
+            <li>
+                <strong>Q42. 암모니아 냉매가 누설되었을 때 나타나는 대표적인 물리적 냄새 특성은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 자극성 악취</div>
+            </li>
+            <li>
+                <strong>Q43. 암모니아 냉매 누설 시 적색에서 청색(파란색)으로 색상이 변하는 지시약 시험지는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 붉은색(적색) 리트머스 시험지</div>
+            </li>
+            <li>
+                <strong>Q44. 프레온 냉매 누설 검사 시 불꽃의 색상이 청록색으로 변하는 검사 공구 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 할라이드 토치 (Halide torch)</div>
+            </li>
+            <li>
+                <strong>Q45. 암모니아 냉매가 수분과 결합했을 때 강한 부식성을 보이며, 배관 재료로 절대 금지되는 금속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 동 및 동합금 (구리)</div>
+            </li>
+            <li>
+                <strong>Q46. 오존층 파괴 지수(ODP)가 가장 높아 사용이 전면 금지되거나 규제되는 프레온 냉매 계열명은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: CFC 계열 (염화불화탄소)</div>
+            </li>
+            <li>
+                <strong>Q47. 지구온난화 지수(GWP)를 평가할 때 비교의 기준이 되는 가스는 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이산화탄소 (CO₂)</div>
+            </li>
+            <li>
+                <strong>Q48. 비등점이 다른 두 개 이상의 냉매를 혼합하였으나, 증발 시 조성비가 변하지 않고 일정하게 끓는 냉매는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 공비 혼합냉매 (R-500 계열)</div>
+            </li>
+            <li>
+                <strong>Q49. 냉매 가스가 대기 중으로 누설되는 것을 시각적으로 쉽게 확인하기 위해 비눗물을 칠했을 때 나타나는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 거품이 발생한다.</div>
+            </li>
+            <li>
+                <strong>Q50. 물의 동결점(0℃) 이하에서 얼지 않고 냉동 전열을 담당하는 간접 냉매를 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 브라인 (Brine / 2차 냉매)</div>
+            </li>
+            <li>
+                <strong>Q51. 브라인 중 고무, 금속류에 대한 내부 부식성이 거의 없어 식품 동결용으로 주로 쓰이는 유기질 브라인은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 프로필렌 글리콜 (또는 에틸렌 글리콜)</div>
+            </li>
+            <li>
+                <strong>Q52. 냉동기 오일이 저온에서 굳지 않고 유동성을 유지할 수 있는 한계 온도를 뜻하는 오일의 특성은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유동점</div>
+            </li>
+            <li>
+                <strong>Q53. 프레온 냉매와 윤활유가 팽창밸브를 지나 저온이 될 때 오일 속의 왁스 성분이 분리되어 밸브를 막는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 왁스 분리 현상 (Wax separation)</div>
+            </li>
+            <li>
+                <strong>Q54. 오일이 냉매와 혼합되어 미세한 방울 형태로 크랭크케이스 밖으로 튀어나가 배관을 순환하는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 오일 포밍 (Oil foaming)</div>
+            </li>
+            <li>
+                <strong>Q55. 무독, 무취, 무인화성이고 프레온의 대표 격이었으나 오존층 파괴문제로 규제된 R-12의 화학적 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 디클로로디플루오로메탄</div>
+            </li>
+            <li>
+                <strong>Q56. 냉매의 구비조건 중 임계 온도는 높아야 하는가, 낮아야 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 높아야 한다.</div>
+            </li>
+            <li>
+                <strong>Q57. 냉매의 구비조건 중 외기가 침입하지 않도록 대기압 하에서의 증발 온도는 높아야 하는가, 낮아야 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 낮아야 한다.</div>
+            </li>
+            <li>
+                <strong>Q58. 프레온 냉매 번호 결정 공식(R-cba)에서 가장 첫 번째 자리 숫자(c)가 의미하는 원소는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 탄소수 - 1</div>
+            </li>
+            <li>
+                <strong>Q59. 탄소, 수소, 불소로만 구성되어 오존층 파괴 지수(ODP)가 0인 친환경 대체 냉매 계열명은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: HFC 계열 (수소불화탄소)</div>
+            </li>
+            <li>
+                <strong>Q60. 냉동용 브라인의 부식을 방지하기 위해 주로 첨가하는 부식 억제제(방청제)는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 중크롬산나트륨</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 4. 압축기 및 주요 부속 기기 (61 ~ 80)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q61. 왕복동식 압축기에서 피스톤과 밸브 판 사이의 물리적 사체적 공간을 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 극간 체적 (클리어런스 밸륨 / Clearance)</div>
+            </li>
+            <li>
+                <strong>Q62. 냉동 장치 가동 초기나 부하 급증 시 증발하지 못한 액체 냉매가 압축기로 흡입되어 실린더가 파손되는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 액압축 (Liquid compression)</div>
+            </li>
+            <li>
+                <strong>Q63. 크랭크케이스 내부 오일 속에 용해되어 있던 냉매가 기동 시 압력 저하로 급격히 비등하여 거품을 일으키는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 오일 포밍 현상</div>
+            </li>
+            <li>
+                <strong>Q64. 압축기 토출 배관에 설치되어 윤활유를 분리하여 크랭크케이스로 가스 누설 없이 돌려보내는 안전장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유분리기 (Oil separator)</div>
+            </li>
+            <li>
+                <strong>Q65. 회전식 압축기나 스크루 압축기 등에서 맥동전류나 부하 변동으로 인해 축이 떨리고 불안정하게 운전되는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 서징 현상 (Surging / 맥동 현상)</div>
+            </li>
+            <li>
+                <strong>Q66. 개방형 압축기에서 구동축의 냉매 누설 및 외기 침입을 방지하기 위해 축 주위에 설치하는 밀봉 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 축봉장치 (Shaft seal)</div>
+            </li>
+            <li>
+                <strong>Q67. 압축기 하부 크랭크케이스 내에 오일 점도를 유지하고 정지 중 오일 포밍을 방지하기 위해 설치하는 전열 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 크랭크케이스 히터 (Crankcase heater)</div>
+            </li>
+            <li>
+                <strong>Q68. 터보 압축기에서 냉동 부하 감소 시 토출 가스 일부를 흡입 측으로 우회시켜 서징을 방지하는 제어법은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 바이패스 제어 (Hot gas bypass)</div>
+            </li>
+            <li>
+                <strong>Q69. 응축기 종류 중 냉각수를 하부에서 공급하고 가스는 상부로 넣어 대향류 상태로 다량의 열을 교환하는 수냉식 응축기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 셸 앤 튜브식 응축기 (Shell and tube)</div>
+            </li>
+            <li>
+                <strong>Q70. 수냉식 응축기 내부에 냉각수 수질 불량으로 인해 관벽에 발생하는 백색의 칼슘 석출물 오염 점착 물질은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스케일 (Scale / 물때)</div>
+            </li>
+            <li>
+                <strong>Q71. 관벽에 스케일이 전열을 방해하는 정도를 수치화한 것으로, 이 값이 클수록 응축 성능이 떨어지는 계수는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 더러움 계수 (오염 계수 / Fouling factor)</div>
+            </li>
+            <li>
+                <strong>Q72. 공기 청정기나 냉각탑 내부에서 물의 증발 잠열을 이용하여 냉각수를 식혀 순환시키는 외기 접촉탑 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 냉각탑 (Cooling tower)</div>
+            </li>
+            <li>
+                <strong>Q73. 증발기 내부 냉매액의 높이를 일정하게 유지하기 위해 플로트 밸브를 사용하는 만액식 증발기용 부속 용기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 액면 제어기 (플로트실)</div>
+            </li>
+            <li>
+                <strong>Q74. 냉동 배관 중 수분이 얼어 붙어 유로를 막는 '수분 동결 현상'이 주로 발생하는 장치 위치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 팽창밸브 오리피스 (구멍 부위)</div>
+            </li>
+            <li>
+                <strong>Q75. 온도조절식 팽창밸브(TEV)가 감지하는 온도 부위는 증발기의 어느 위치인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증발기 출구 배관 현장</div>
+            </li>
+            <li>
+                <strong>Q76. 냉동 장치 장기 정지 시나 수리 시 배관 내 냉매를 수액기에 강제로 모으는 밀봉 회수 작업을 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 펌프 다운 (Pump down)</div>
+            </li>
+            <li>
+                <strong>Q77. 저온 증발기 표면에 서리가 맺혀 열전달을 방해할 때, 이를 녹여 제거하는 작업을 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 제상 (Defrost)</div>
+            </li>
+            <li>
+                <strong>Q78. 압축기 토출측의 고온 가스를 증발기로 직접 보내어 빠르고 효율적으로 서리를 녹이는 제상 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 핫가스 제상 방식 (Hot gas defrost)</div>
+            </li>
+            <li>
+                <strong>Q79. 소형 냉장고나 쇼케이스 등 구조가 간단한 냉동 장치에 쓰이며, 별도의 제어 없이 감압작업을 수행하는 얇은 관은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 모세관 (Capillary tube)</div>
+            </li>
+            <li>
+                <strong>Q80. 냉동 배관 중 응축기 출구와 팽창밸브 사이에 설치되어 냉매의 흐름 상태 및 수분 포함 여부를 보여주는 투명 창은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 사이트 글라스 (Sight glass / 액면계)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 5. 안전장치, 시험 및 계산 자동화 (81 ~ 100)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q81. 고압 압력 스위치(HPS)의 주요 기능은 고압 발생 시 무엇을 차단하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 압축기 모터 전원 (동력)</div>
+            </li>
+            <li>
+                <strong>Q82. 유압 보호 스위치(OPS)는 크랭크케이스 내 유압과 무엇의 압력 차이를 감지하여 작동하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 흡입 압력 (크랭크케이스 내 압력)</div>
+            </li>
+            <li>
+                <strong>Q83. 압축기 오일 압력 스위치는 압력 저하 감지 시 타이머가 작동하여 약 몇 초 후에 압축기를 차단하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 60초 ~ 90초 (지연 작동)</div>
+            </li>
+            <li>
+                <strong>Q84. 냉동 시스템 내부 압력이 허용 최고치를 초과할 때 기계적으로 파열하여 가스를 방출해 폭발을 막는 안전부품은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 파열판 (Rupture disc)</div>
+            </li>
+            <li>
+                <strong>Q85. 수냉식 응축기에서 냉각수 공급이 중단되었을 때 압축기 과열 및 압력 상승을 방지하기 위해 연동 설치하는 스위치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 단수 릴레이 (Flow switch / 단수 스위치)</div>
+            </li>
+            <li>
+                <strong>Q86. 냉동 배관 시공 완료 후 배관 강도 및 누설 여부를 최종 확인하기 위해 고압 기체로 가압하는 시험은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 기밀 시험 (Pressure test)</div>
+            </li>
+            <li>
+                <strong>Q87. 냉동 배관 기밀 시험 시 위험성 때문에 절대 가압용 기체로 사용해서는 안 되는 가스는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 산소 (O₂ / 화재 및 폭발 위험)</div>
+            </li>
+            <li>
+                <strong>Q88. 기밀 시험이 끝난 뒤 장치 내부의 수분과 공기를 완전히 제거하여 진공 상태로 만드는 배관 정리 작업은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 진공 건조 (Vaccum pull)</div>
+            </li>
+            <li>
+                <strong>Q89. 압축기의 실제 가스 토출량을 피스톤 압축기 체적으로 나눈 비율로, 클리어런스가 작을수록 향상되는 효율 지표는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 체적 효율 (Volumetric efficiency)</div>
+            </li>
+            <li>
+                <strong>Q90. 일정한 저온 유지를 위해 냉매 공급 배관 중간에 설치하여 전기 신호로 유로를 개폐하는 전자 제어 밸브명은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전자밸브 (Solenoid valve)</div>
+            </li>
+            <li>
+                <strong>Q91. 냉동 장치에서 고압 차단 스위치와 저압 차단 스위치의 기능을 하나의 제어기 내부에 통합 설계한 부품 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 고저압 압력 차단기 (Dual pressure switch)</div>
+            </li>
+            <li>
+                <strong>Q92. 증발기 코일 표면에 서리가 심하게 얼었을 때 전체 시스템의 냉동 능력은 어떻게 변하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 저하된다 (감소한다)</div>
+            </li>
+            <li>
+                <strong>Q93. 냉매의 상태 가압 능력을 표시하는 단위 중 1 kg/cm²은 약 몇 mH₂O(물기둥 높이)인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 10m</div>
+            </li>
+            <li>
+                <strong>Q94. [계산] 냉동능력이 33,200 kcal/h 인 냉동기는 몇 한국 냉동톤(RT) 성능인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 및 풀이 확인</span>
+                <div class="quiz-answer-box">👉 정답: 10 RT (풀이: 33,200 / 3,320 = 10)</div>
+            </li>
+            <li>
+                <strong>Q95. [계산] 냉동기의 증발기 엔탈피 차이(내부 냉동효과)가 40 kcal/kg 이고 냉매 순환량이 100 kg/h 일 때, 냉동능력(kcal/h)은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 및 풀이 확인</span>
+                <div class="quiz-answer-box">👉 정답: 4,000 kcal/h (풀이: 40 × 100 = 4,000)</div>
+            </li>
+            <li>
+                <strong>Q96. [계산] 어떤 냉동기의 냉동능력이 8,600 kcal/h 이고 압축기 소요 전력이 2 kW 일 때 성적계수(COP)는 얼마인가? (단, 1kW=860kcal/h)</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 및 풀이 확인</span>
+                <div class="quiz-answer-box">👉 정답: 5 (풀이: 8,600 / (2 × 860) = 5)</div>
+            </li>
+            <li>
+                <strong>Q97. [계산] 저온부 절대온도가 250 K 이고 고온부 절대온도가 300 K 인 이상적인 역카르노 냉동기의 성적계수는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 및 풀이 확인</span>
+                <div class="quiz-answer-box">👉 정답: 5 (풀이: T2 / (T1 - T2) = 250 / (300 - 250) = 5)</div>
+            </li>
+            <li>
+                <strong>Q98. 냉매 충전 시 액체 상태로 거꾸로 세워 충전해야 하는 혼합 물질 계열 냉매는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 비공비 혼합냉매 (R-400 계열 / 조성비 보존 목적)</div>
+            </li>
+            <li>
+                <strong>Q99. 압축기 토출 밸브가 리크(누설)될 때 나타나는 현상으로, 흡입 가스의 온도는 어떻게 변하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 상승한다 (토출 가스의 재흡입 때문)</div>
+            </li>
+            <li>
+                <strong>Q100. 공조냉동 시스템 가동 중 액관 배관에 설치된 가용전(가용플러그)이 녹아 가스를 방출시키는 주된 원인은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 화재 등으로 인한 주위 온도 및 내부 압력의 이상 상승</div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 공조냉동기계기능사 필기/실기 대비 냉동공학 마스터 과정</p>
+        <p style="margin-top: 5px; font-size: 11px;">수고하셨습니다. 100문제를 확실히 맞추면 과락은 존재하지 않습니다!</p>
+    </footer>
+</div>
+
+<button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙 다크모드 보기</button>
+
+<script>
+    // 오프라인 file:/// 보안 우회 및 테마 복원 안전장치
+    (function() {
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.className = 'dark-mode';
+            }
+        } catch (e) {
+            console.log("로컬 보안 임시 세션 가동");
+        }
+    })();
+
+    window.onload = function() {
+        var btn = document.getElementById('themeToggle');
+        if (document.body.classList.contains('dark-mode') || document.body.className === 'dark-mode') {
+            btn.innerHTML = '☀️ 라이트모드 보기';
+        }
+    };
+
+    function toggleTheme() {
+        var body = document.body;
+        var btn = document.getElementById('themeToggle');
+
+        if (body.className === 'dark-mode' || body.classList.contains('dark-mode')) {
+            body.className = '';
+            body.classList.remove('dark-mode');
+            btn.innerHTML = '🌙 다크모드 보기';
+            try { localStorage.setItem('theme', 'light'); } catch(e) {}
+        } else {
+            body.className = 'dark-mode';
+            body.classList.add('dark-mode');
+            btn.innerHTML = '☀️ 라이트모드 보기';
+            try { localStorage.setItem('theme', 'dark'); } catch(e) {}
+        }
+    }
+
+    // 구형 브라우저 완벽 호환 수동 퀴즈 제어 함수
+    function toggleQuiz(element) {
+        var answerBox = element.nextElementSibling;
+        while (answerBox && !answerBox.classList.contains('quiz-answer-box')) {
+            answerBox = answerBox.nextElementSibling;
+        }
+
+        if (answerBox) {
+            if (answerBox.style.display === 'block') {
+                answerBox.style.display = 'none';
+                element.innerHTML = (element.innerHTML.indexOf('풀이') !== -1) ? '정답 및 풀이 확인' : '정답 확인';
+            } else {
+                answerBox.style.display = 'block';
+                element.innerHTML = '닫기 ✖';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

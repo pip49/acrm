@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공조냉동기계기능사 - 공기조화 핵심 100제</title>
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --container-bg: #ffffff;
+            --text-color: #334155;
+            --text-dark: #0f172a;
+            --primary-color: #0d9488;
+            --primary-light: #ccfbf1;
+            --accent-color: #db2777;
+            --border-color: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        header h1 { font-size: 24px; color: var(--text-dark); margin-bottom: 8px; }
+        .meta-info { font-size: 14px; color: #64748b; }
+        .meta-info span { color: var(--accent-color); font-weight: bold; }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--text-dark);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .sub-section {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .concept-list { list-style-type: none; }
+        .concept-list > li {
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 15px;
+        }
+        .concept-list > li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+        .quiz-toggle-btn {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .quiz-answer-box {
+            display: none;
+            margin-top: 8px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: #b91c1c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* 다크모드 스타일 */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --container-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --text-dark: #f8fafc;
+            --primary-color: #2dd4bf;
+            --primary-light: #115e59;
+            --border-color: #334155;
+        }
+        body.dark-mode .sub-section { background: #111827; }
+        body.dark-mode .quiz-answer-box { background-color: #0f172a; color: #f472b6; }
+
+        /* 토글 버튼 고정 스타일 */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10 rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        body.dark-mode .theme-toggle-btn { background-color: #e2e8f0; color: #0f172a; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>공기조화 주관식/필답형 고 빈출 100제</h1>
+        <div class="meta-info">공조냉동기계기능사 합격 마스터 | 총 <span>100문항</span> 완성</div>
+    </header>
+
+    <h2 class="section-title">PART 1. 공기의 성질 및 습공기선도 기초 (1 ~ 20)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q1. 일반적인 온도계로 측정되는 공기의 온도를 뜻하는 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 건구온도 (Dry-bulb temperature)</div>
+            </li>
+            <li>
+                <strong>Q2. 온도계의 감온부를 물에 적신 거즈로 감싸고 공기류 중에 노출하여 측정한 온도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 습구온도 (Wet-bulb temperature)</div>
+            </li>
+            <li>
+                <strong>Q3. 공기 중의 수증기가 불포화 상태에서 냉각되어 이슬이 맺히기 시작할 때의 온도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 노점온도 (Dew-point temperature / 이슬점온도)</div>
+            </li>
+            <li>
+                <strong>Q4. 건조공기 1kg 속에 포함되어 있는 수증기의 중량(kg)을 나타내는 습도의 정의는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 절대습도 (Absolute humidity)</div>
+            </li>
+            <li>
+                <strong>Q5. 현재 온도의 포화 수증기압에 대한 현재 실제 수증기 분압의 비율을 백분율(%)로 나타낸 습도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 상대습도 (Relative humidity)</div>
+            </li>
+            <li>
+                <strong>Q6. 상대습도가 100%일 때, 건구온도, 습구온도, 노점온도의 크기 관계는 어떻게 되는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 세 온도가 모두 같다. (건구온도 = 습구온도 = 노점온도)</div>
+            </li>
+            <li>
+                <strong>Q7. 공기조화의 4대 기본 요소를 모두 적으시오.</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 온도, 습도, 기류(기류속도), 청정도</div>
+            </li>
+            <li>
+                <strong>Q8. 인체가 느끼는 추위와 더위의 감각을 온도, 습도, 기류의 3요소 조합으로 나타낸 온도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유효온도 (Effective temperature / ET)</div>
+            </li>
+            <li>
+                <strong>Q9. 수증기를 전혀 포함하지 않는 질소, 산소 등의 혼합 가스를 무엇이라 부르는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 건조공기</div>
+            </li>
+            <li>
+                <strong>Q10. 공기선도상에서 수평 방향으로 오른쪽으로 이동할 때 변화하는 상태는 가열인가, 냉각인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 단순 가열 (절대습도 일정, 건구온도 상승)</div>
+            </li>
+            <li>
+                <strong>Q11. 공기선도상에서 수직 방향으로 위쪽으로 이동할 때의 상태 변화 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 단순 가습 (건구온도 일정, 절대습도 상승)</div>
+            </li>
+            <li>
+                <strong>Q12. 공기선도상에서 왼쪽 아래 사선(등엔탈피선 방향)으로 이동하며 온도는 내려가고 습도가 올라가는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증발 냉각 (단열 가습 현상)</div>
+            </li>
+            <li>
+                <strong>Q13. 공기의 전열량(전체 보유 열량)을 뜻하는 용어로, 현열량과 잠열량의 합인 상태량은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엔탈피 (Enthalpy)</div>
+            </li>
+            <li>
+                <strong>Q14. 공기선도에서 총부하에 대한 현열부하의 비율을 나타내는 지표의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 현열비 (SHF / Sensible Heat Factor)</div>
+            </li>
+            <li>
+                <strong>Q15. 현열비(SHF) 공식은 '현열량'과 '잠열량'을 이용하여 어떻게 나타내는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 현열량 / (현열량 + 잠열량)  [또는 현열량 / 전열량]</div>
+            </li>
+            <li>
+                <strong>Q16. 실내 공기가 차가운 벽이나 유리창에 접촉하여 공기 중의 수증기가 물방울로 맺히는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 결로 현상</div>
+            </li>
+            <li>
+                <strong>Q17. 결로 현상을 방지하기 위해 배관 외부에 열전달을 차단하는 물질을 감싸는 작업을 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 보온 작업 (단열 작업)</div>
+            </li>
+            <li>
+                <strong>Q18. 습공기선도의 종류 중 국내외에서 가장 널리 사용되며 세로축이 절대습도, 가로축이 건구온도인 선도는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 캐리어 선도 (Carrier 선도)</div>
+            </li>
+            <li>
+                <strong>Q19. 겨울철 실내 쾌적 조건의 대략적인 적정 온도와 상대습도 범위는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 온도 20~22℃, 습도 40~60%</div>
+            </li>
+            <li>
+                <strong>Q20. 기온, 습도, 기류 외에 복사열까지 고려하여 인체의 열만족도를 평가하는 온도의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 수정유효온도 (Corrected Effective Temperature / CET)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 2. 공기조화 방식 및 시스템 분류 (21 ~ 40)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q21. 공조실에서 만들어진 냉풍 또는 온풍을 덕트만을 이용하여 실내로 송풍하는 공조 방식 계열은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전공기 방식 (All-air system)</div>
+            </li>
+            <li>
+                <strong>Q22. 실내 부하 변화에 맞춰 송풍 온도는 일정하게 두고, 송풍량을 변화시켜 조절하는 에너지 절약형 공조 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 가변풍량 방식 (VAV / Variable Air Volume)</div>
+            </li>
+            <li>
+                <strong>Q23. 송풍량을 항상 일정하게 유지하고, 실내 부하에 따라 송풍 온도를 변화시켜 제어하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 정풍량 방식 (CAV / Constant Air Volume)</div>
+            </li>
+            <li>
+                <strong>Q24. 공조기에서 냉풍용과 온풍용 두 개의 덕트를 가동하여 실내 혼합상자에서 섞어 공급하는 공조 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이중덕트 방식</div>
+            </li>
+            <li>
+                <strong>Q25. 각 실내에 냉수나 온수를 통과시키는 팬 코일 유닛(FCU)을 배치하고, 별도의 덕트 없이 배관으로만 연결하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전수 방식 (All-water system)</div>
+            </li>
+            <li>
+                <strong>Q26. 전수 방식의 대표적인 기기로, 송풍기와 냉온수 코일, 에어 필터를 하나의 케이싱에 조립한 소형 유닛은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 팬 코일 유닛 (FCU)</div>
+            </li>
+            <li>
+                <strong>Q27. 1차 공조기에서 처리된 고압 공기를 실내 유인 유닛으로 분사할 때 발생하는 흡입력(유인력)으로 실내 공기를 흡입·순환시키는 공조 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유인유닛 방식 (Induction unit system)</div>
+            </li>
+            <li>
+                <strong>Q28. 전공기 방식과 비교했을 때, 전수 방식(FCU)이 가지는 배관 및 공간상의 가장 큰 장점은 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 덕트 스페이스가 필요 없거나 매우 작아 건물 층고를 낮출 수 있다.</div>
+            </li>
+            <li>
+                <strong>Q29. 대형 공조 방식 중 부하 변동에 따른 제어가 매우 우수하고 개별 제어가 완벽하나, 기계실 면적과 설비비가 가장 많이 드는 전공기 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이중덕트 방식</div>
+            </li>
+            <li>
+                <strong>Q30. 멀티존 공조 방식에서 각 구역(Zone)으로 보내는 풍량을 조절하기 위해 공조기 출구 댐퍼를 개별 작동시키는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 멀티존 댐퍼 (조닝 댐퍼)</div>
+            </li>
+            <li>
+                <strong>Q31. 개별식 공조 방식 중 압축기, 응축기, 증발기를 하나의 상자 내에 일체화하여 창문이나 벽에 설치하는 에어컨 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 패키지형 에어컨 (윈도우형 / 분리형 에어컨)</div>
+            </li>
+            <li>
+                <strong>Q32. 외풍이나 침입 외기가 실내로 들어오는 것을 방지하기 위해 현관 출입구 상부에 설치하여 고속의 에어 커튼막을 형성하는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 에어 커튼 (Air curtain)</div>
+            </li>
+            <li>
+                <strong>Q33. 극장, 대강당 등 층고가 높고 넓은 단일 공간에 가장 적합한 대용량 전공기 공조 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 단일덕트 정풍량 방식 (CAV)</div>
+            </li>
+            <li>
+                <strong>Q34. 전수 방식(FCU)은 전공기 방식에 비해 외기(신선한 공기) 도입을 통한 환기 성능이 어떠한가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 불량하다 (환기량이 부족하거나 어렵다)</div>
+            </li>
+            <li>
+                <strong>Q35. 공조 방식 분류 중 냉풍과 온풍을 동시에 만드는 공조기 히트펌프식 핵심 시스템 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: EHP (전기구동 히트펌프) 또는 GHP (가스구동 히트펌프)</div>
+            </li>
+            <li>
+                <strong>Q36. 가변풍량(VAV) 방식에서 풍량을 줄였을 때 발생할 수 있는 실내 공기 유동상의 단점은 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 기류가 정체되어 실내 공기가 탁해지거나 청정도가 저하될 수 있다.</div>
+            </li>
+            <li>
+                <strong>Q37. 반도체 공장, 병원 수술실 등 먼지를 극도로 제어해야 하는 특수 공조 공간을 무엇이라 부르는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 클린룸 (Clean Room / 청정실)</div>
+            </li>
+            <li>
+                <strong>Q38. 클린룸 중 주로 미생물, 세균 등의 번식을 억제하기 위해 병원이나 제약회사에 설치하는 청정실의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 바이오 클린룸 (BCR)</div>
+            </li>
+            <li>
+                <strong>Q39. 공업용 클린룸(ICR)에서 주로 제어 대상이 되는 오염 물질은 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 부유 미립자 (먼지, 반도체 미세 입자)</div>
+            </li>
+            <li>
+                <strong>Q40. 실내 온습도를 연중 일정하게 초정밀 제어해야 하는 박물관, 계측기실용 공조 시스템 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 항온항습기 시스템</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 3. 공조 기기 및 부속 설비 (41 ~ 60)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q41. 공조기 내부에서 공기 중의 부유 먼지를 걸러내어 청정도를 유지하는 부품은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 에어 필터 (Air Filter / 공기 여과기)</div>
+            </li>
+            <li>
+                <strong>Q42. 클린룸의 최종 급기구에 설치되며, 0.3㎛ 크기의 미세먼지를 99.97% 이상 차단하는 초고성능 필터는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 헤파 필터 (HEPA Filter)</div>
+            </li>
+            <li>
+                <strong>Q43. 공조기 내부에서 다량의 물을 노즐로 분무하여 공기를 세정함과 동시에 냉각, 가습, 감습을 행하는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 에어 와셔 (Air Washer / 공기 세정기)</div>
+            </li>
+            <li>
+                <strong>Q44. 에어 와셔 내부에서 분무된 수적(물방울)이 송풍기 덕트로 넘어가지 않도록 차단하는 판넬 부품은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엘리미네이터 (Eliminator / 수적 분리판)</div>
+            </li>
+            <li>
+                <strong>Q45. 겨울철 난방 시 건조한 실내 공기에 수분을 공급하기 위해 사용하는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 가습기 (Humidifier)</div>
+            </li>
+            <li>
+                <strong>Q46. 가습기의 종류 중 물을 가열하여 발생하는 증기를 직접 공기류에 분사하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증기 가습식 (전열 가습형)</div>
+            </li>
+            <li>
+                <strong>Q47. 가습기의 종류 중 초음파 진동을 이용해 물을 미세한 입자로 부수어 분무하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 초음파식 가습기 (기화/분무형)</div>
+            </li>
+            <li>
+                <strong>Q48. 공기를 송풍할 때 발생하는 소음을 줄이기 위해 덕트 도중에 설치하는 흡음재 내장형 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 소음기 (Silencer)</div>
+            </li>
+            <li>
+                <strong>Q49. 덕트의 분기점이나 합류점에 설치하여 풍량을 조절하거나 차단하는 가동 날개형 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 댐퍼 (Damper)</div>
+            </li>
+            <li>
+                <strong>Q50. 화재 발생 시 덕트를 통한 연기나 불꽃의 확산을 방지하기 위해 퓨즈가 녹아 자동으로 닫히는 댐퍼는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 방화 댐퍼 (Fire Damper)</div>
+            </li>
+            <li>
+                <strong>Q51. 배기 덕트 말단에 주로 설치하여 공기가 오직 한쪽 방향으로만 흐르고 역류하는 것을 방지하는 댐퍼는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 역류 방지 댐퍼 (Check Damper / 백드래프트 댐퍼)</div>
+            </li>
+            <li>
+                <strong>Q52. 덕트 내부 유체의 마찰 저항을 줄이기 위해 원형 덕트와 사각 덕트 중 어떤 형상이 더 유리한가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 원형 덕트</div>
+            </li>
+            <li>
+                <strong>Q53. 사각형 덕트의 가로와 세로 길이의 비율을 뜻하며, 설계 시 이 값이 너무 크면 저항과 소음이 증가하는 지표는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 장방비 (Aspect ratio / 애스펙트비)</div>
+            </li>
+            <li>
+                <strong>Q54. 장방비(Aspect ratio)의 이상적인 권장 기준 수치는 얼마 이하인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 4 : 1 이하 (가능하면 1:1에 가깝게)</div>
+            </li>
+            <li>
+                <strong>Q55. 송풍기 작동 시 발생하는 진동이 덕트 배관으로 전달되는 것을 방지하기 위해 사용하는 유연한 캔버스 천 연결재는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 캔버스 이음 (Canvas joint)</div>
+            </li>
+            <li>
+                <strong>Q56. 공기를 사방으로 고르게 확산시키며 부착류 효과(코안다 효과)를 내어 천장에 주로 설치하는 취출구 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 아네모스탯형 취출구 (디퓨저 / Anemostat)</div>
+            </li>
+            <li>
+                <strong>Q57. 축류 송풍기의 일종으로, 대풍량 저압 가동에 적합하며 일반 가정용 환풍기나 선풍기에 쓰이는 홴(Fan)은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 프로펠러 홴 (Propeller Fan)</div>
+            </li>
+            <li>
+                <strong>Q58. 원심 송풍기 중 깃(Blades)이 회전 방향 앞쪽으로 굽은 전곡형으로, 구조가 작고 저소음 다풍량에 쓰이는 송풍기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 시로코 송풍기 (Sirocco Fan)</div>
+            </li>
+            <li>
+                <strong>Q59. 송풍기의 풍량(Q), 정압(P), 축동력(L)과 회전수(N)의 비례 관계를 나타내는 상사의 법칙 중, 풍량은 회전수의 몇 승에 비례하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 1승에 비례 (풍량 ∝ N)</div>
+            </li>
+            <li>
+                <strong>Q60. 송풍기 상사의 법칙 중, 축동력(L)은 송풍기 회전수(N)의 몇 승에 비례하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 3승에 비례 (동력 ∝ N³)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 4. 공조 부하 계산 및 에너지 절약 (61 ~ 80)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q61. 실내 온습도를 유지하기 위해 제거해야 하는 열량으로, 벽면 통과 열량, 유리창 관류열량 등을 포함하는 부하는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 냉방 부하 (Cooling Load)</div>
+            </li>
+            <li>
+                <strong>Q62. 냉방 부하 요소 중 인간의 체열 방출, 조명기구 발열, 기기 발열 등은 외부 부하인가, 내부 부하인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 내부 부하</div>
+            </li>
+            <li>
+                <strong>Q63. 틈새바람이나 환기를 위해 도입하는 외기를 처리하기 위해 발생하는 부하 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 외기 부하 (도입 외기 부하)</div>
+            </li>
+            <li>
+                <strong>Q64. 벽체나 지붕이 직사광선을 받아 가열되었을 때, 재질의 열축적 현상 때문에 실내로 뒤늦게 열이 전해지는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열용량에 의한 타임 랙 (Time Lag / 시간 지연)</div>
+            </li>
+            <li>
+                <strong>Q65. 일사열을 받는 외벽의 냉방 부하 계산 시, 재료의 두께와 일사 효과를 고려하여 실제 온도차 대신 사용하는 가상의 온도차는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 실효 온도차 (ETD / Equivalent Temperature Difference)</div>
+            </li>
+            <li>
+                <strong>Q66. 겨울철 난방 부하 계산 시, 냉방 부하와 달리 완전히 제외하고 계산하는(부하가 영(0)이 되는) 일사 효과 부하는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유리창을 통한 직사 일사 부하 (안전측 설계를 위해 제외)</div>
+            </li>
+            <li>
+                <strong>Q67. 공조시스템 운전 중 실내에서 배출되는 배기(EA)의 열을 도입되는 외기(OA)로 회수하여 에너지를 절약하는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전열교환기 (전열 회수 로터 / 에너recovery 부품)</div>
+            </li>
+            <li>
+                <strong>Q68. 전열교환기는 공기 중의 현열과 무엇을 동시에 교환하여 회수하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 잠열 (수증기/습도)</div>
+            </li>
+            <li>
+                <strong>Q69. 중간기(봄, 가을)에 냉방 부하가 발생할 때, 냉동기를 틀지 않고 외부의 시원한 공기를 다량 도입하여 냉방하는 제어법은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 외기 냉방 제어 (이코노마이저 사이클 / Economizer)</div>
+            </li>
+            <li>
+                <strong>Q70. 창문이나 문틈 사이로 자연적으로 침입하여 공조 부하를 증가시키는 원치 않는 바람을 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 틈새바람 (극간풍)</div>
+            </li>
+            <li>
+                <strong>Q71. 냉방 부하 중 조명기구의 발열량(kcal/h)을 구하는 공식은 조명 전력(W)에 얼마의 상수를 곱하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 860 kcal/h (풀이: W × 0.86 또는 kW × 860)</div>
+            </li>
+            <li>
+                <strong>Q72. 재실자(인체)로부터 발생하는 부하는 온도가 올라가는 현열부하와 습도가 발생하는 무슨 부하의 합인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 잠열 부하</div>
+            </li>
+            <li>
+                <strong>Q73. 유리창을 통과하는 열량 계산 시, 유리 재질 및 블라인드 설치 유무에 따라 열진입 차단 성능을 나타내는 계수는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 차폐 계수 (Shading Coefficient)</div>
+            </li>
+            <li>
+                <strong>Q74. 건물 벽체의 단열 성능을 나타내며, 단위 면적당 온도차 1℃일 때 통과하는 열량(W/m²·K)을 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 열관류율 (열통과율)</div>
+            </li>
+            <li>
+                <strong>Q75. 벽체의 열관류율(U)은 벽체 전체 열저항(R)과 어떤 산술적 관계를 가지는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 역수 관계 (U = 1 / R)</div>
+            </li>
+            <li>
+                <strong>Q76. 건물의 창면적비를 낮추고 이중유리를 설치하면 냉난방 부하는 어떻게 변하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 부하가 감소한다 (에너지 절약)</div>
+            </li>
+            <li>
+                <strong>Q77. 공조 덕트 설계법 중, 덕트 경로 전체의 마찰 압력 손실률(mmAq/m)을 동일하게 가정하여 직경을 결정하는 방법은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 등마찰 손실법 (등마찰법)</div>
+            </li>
+            <li>
+                <strong>Q78. 공조 덕트 설계법 중, 각 분기점에서의 동압 감소량만큼 정압을 회복시켜 하류에서도 동일한 정압을 유지하게 하는 방법은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 정압재취득법</div>
+            </li>
+            <li>
+                <strong>Q79. 덕트 내부의 기류 속도가 15m/s 이상인 대형 고속 공조 시스템 덕트를 뜻하는 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 고속 덕트</div>
+            </li>
+            <li>
+                <strong>Q80. 일반 상업 빌딩이나 사무실의 소음 저감을 위해 사용하는 기류 속도 15m/s 미만의 일반 덕트 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 저속 덕트</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 5. 난방 설비 및 배관 기본 (81 ~ 100)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q81. 보일러에서 만든 증기를 방열기로 보내 증발 잠열을 방출하여 실내를 난방하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증기 난방 (Steam heating)</div>
+            </li>
+            <li>
+                <strong>Q82. 보일러에서 만든 온수를 순환시켜 방열기에서 온수의 현열을 방출하여 난방하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 온수 난방 (Hot water heating)</div>
+            </li>
+            <li>
+                <strong>Q83. 증기 난방과 온수 난방 중, 예열 시간이 짧고 열용량이 작아 간헐 운전에 적합한 난방 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증기 난방</div>
+            </li>
+            <li>
+                <strong>Q84. 온수 난방은 증기 난방에 비해 난방을 정지해도 실내가 쉽게 식지 않는 장점이 있다. 그 주된 물리적 원인은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 물의 열용량(비열)이 커서 보유 열량이 많기 때문에</div>
+            </li>
+            <li>
+                <strong>Q85. 바닥이나 천장 표면 내부에 배관을 매립하고 온수를 흘려 개별 방열기 없이 복사열로 실내를 데우는 난방 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 복사 난방 (패널 난방 / Radiant heating)</div>
+            </li>
+            <li>
+                <strong>Q86. 실내 상하 온도 차가 가장 작아 쾌적도가 매우 높으며, 천장이 높은 대공간 주거용에 최적인 난방 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 복사 난방</div>
+            </li>
+            <li>
+                <strong>Q87. 증기 배관 계통에서 응축수만을 자동 배출하고 생증기의 누설을 차단하는 배관 부속 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증기 트랩 (Steam Trap)</div>
+            </li>
+            <li>
+                <strong>Q88. 증기 트랩 종류 중 바이메탈이나 벨로즈의 열팽창 변형을 이용하여 응축수를 배출하는 트랩 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 온도 조절식 트랩 (서모스탯 트랩)</div>
+            </li>
+            <li>
+                <strong>Q89. 증기 트랩 종류 중 응축수의 부력(Float) 차이를 물리적으로 이용한 기계식 트랩의 대표 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플로트 트랩 (Float Trap) 또는 버킷 트랩</div>
+            </li>
+            <li>
+                <strong>Q90. 온수 배관 계통의 최상부에 설치하며, 배관 내부 고임 공기를 자동 방출하여 온수 순환 장애를 막는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 자동 공기 빼기 밸브 (Air vent valve)</div>
+            </li>
+            <li>
+                <strong>Q91. 온수 난방 배관에서 물의 온도 상승에 따른 체적 팽창 압력을 흡수하고 계통 내 수량을 유지하는 용기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 팽창 탱크 (Expansion tank)</div>
+            </li>
+            <li>
+                <strong>Q92. 대기 중에 개방되어 구조가 간단하나 배관 부식 우려가 있는 상부 개방형 팽창 탱크 종류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 개방형 팽창 탱크</div>
+            </li>
+            <li>
+                <strong>Q93. 다이어프램 밀봉 구조를 사용하여 밀폐된 압력 하에서 밀봉 작동하며 고온수 난방에 필수적인 탱크 종류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 밀폐형 팽창 탱크</div>
+            </li>
+            <li>
+                <strong>Q94. 복사 난방(바닥 매립식)은 일반 방열기 방식에 비해 초기 시공비와 수리(보수) 편의성이 어떠한가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 시공비가 비싸고 구조상 보수 및 누수 수리가 매우 어렵다.</div>
+            </li>
+            <li>
+                <strong>Q95. 증기 배관 중간에 응축수가 고여 송풍기나 급격한 가동 압력에 의해 배관벽을 때리며 충격 소음을 내는 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 수격 작용 (워터 햄머링 / Water Hammering)</div>
+            </li>
+            <li>
+                <strong>Q96. 난방 부하 계산 시 환기나 틈새바람에 의해 들어온 외기를 실내 온도까지 데우는 데 필요한 열량 부하는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 환기 부하 (외기 난방 부하)</div>
+            </li>
+            <li>
+                <strong>Q97. 온수 배관 연결 방식 중, 각 방열기까지의 배관 총 길이를 동일하게 맞추어 온수 유량을 균등 분배하는 역환수 배관 방식 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 리버스 리턴 방식 (Reverse return)</div>
+            </li>
+            <li>
+                <strong>Q98. 보일러의 정격 출력을 정의하는 5대 부하 중 '난방부하 + 급탕부하 + 배관손실부하 + 배후(환기)부하'의 합을 뜻하는 출력 지표는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 상용 출력</div>
+            </li>
+            <li>
+                <strong>Q99. 보일러 정격 출력 요소 중 '상용출력'에 최종적으로 '예열부하'까지 합산한 최고 용량 지표 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 정격 출력 (Maximum continuous rating)</div>
+            </li>
+            <li>
+                <strong>Q100. 공조기 냉온수 헤더 배관이나 보일러 출구관에 설치되어 유체의 역류를 물리적으로 차단하는 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 체크 밸브 (Check Valve)</div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 공조냉동기계기능사 필기/실기 대비 공기조화 마스터 과정</p>
+        <p style="margin-top: 5px; font-size: 11px;">수고하셨습니다. 공기조화 100문제를 완벽히 소화하시면 고득점 합격은 확실합니다!</p>
+    </footer>
+</div>
+
+<button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙 다크모드 보기</button>
+
+<script>
+    // 오프라인 file:/// 보안 우회 및 테마 복원 안전장치
+    (function() {
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.className = 'dark-mode';
+            }
+        } catch (e) {
+            console.log("로컬 보안 임시 세션 가동");
+        }
+    })();
+
+    window.onload = function() {
+        var btn = document.getElementById('themeToggle');
+        if (document.body.classList.contains('dark-mode') || document.body.className === 'dark-mode') {
+            btn.innerHTML = '☀️ 라이트모드 보기';
+        }
+    };
+
+    function toggleTheme() {
+        var body = document.body;
+        var btn = document.getElementById('themeToggle');
+
+        if (body.className === 'dark-mode' || body.classList.contains('dark-mode')) {
+            body.className = '';
+            body.classList.remove('dark-mode');
+            btn.innerHTML = '🌙 다크모드 보기';
+            try { localStorage.setItem('theme', 'light'); } catch(e) {}
+        } else {
+            body.className = 'dark-mode';
+            body.classList.add('dark-mode');
+            btn.innerHTML = '☀️ 라이트모드 보기';
+            try { localStorage.setItem('theme', 'dark'); } catch(e) {}
+        }
+    }
+
+    // 구형 브라우저 완벽 호환 수동 퀴즈 제어 함수
+    function toggleQuiz(element) {
+        var answerBox = element.nextElementSibling;
+        while (answerBox && !answerBox.classList.contains('quiz-answer-box')) {
+            answerBox = answerBox.nextElementSibling;
+        }
+
+        if (answerBox) {
+            if (answerBox.style.display === 'block') {
+                answerBox.style.display = 'none';
+                element.innerHTML = '정답 확인';
+            } else {
+                answerBox.style.display = 'block';
+                element.innerHTML = '닫기 ✖';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

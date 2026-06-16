@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공조냉동기계기능사 - 배관일반 핵심 100제</title>
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --container-bg: #ffffff;
+            --text-color: #334155;
+            --text-dark: #0f172a;
+            --primary-color: #0284c7;
+            --primary-light: #e0f2fe;
+            --accent-color: #ea580c;
+            --border-color: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        header h1 { font-size: 24px; color: var(--text-dark); margin-bottom: 8px; }
+        .meta-info { font-size: 14px; color: #64748b; }
+        .meta-info span { color: var(--accent-color); font-weight: bold; }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--text-dark);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .sub-section {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .concept-list { list-style-type: none; }
+        .concept-list > li {
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 15px;
+        }
+        .concept-list > li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+        .quiz-toggle-btn {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .quiz-answer-box {
+            display: none;
+            margin-top: 8px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: #c2410c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* 다크모드 스타일 */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --container-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --text-dark: #f8fafc;
+            --primary-color: #38bdf8;
+            --primary-light: #0c4a6e;
+            --border-color: #334155;
+        }
+        body.dark-mode .sub-section { background: #111827; }
+        body.dark-mode .quiz-answer-box { background-color: #0f172a; color: #fb923c; }
+
+        /* 토글 버튼 고정 스타일 */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        body.dark-mode .theme-toggle-btn { background-color: #e2e8f0; color: #0f172a; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>배관일반 주관식/실기형 고 빈출 100제</h1>
+        <div class="meta-info">공조냉동기계기능사 합격 마스터 | 총 <span>100문항</span> 완성</div>
+    </header>
+
+    <h2 class="section-title">PART 1. 배관 재료의 특성 및 분류 (1 ~ 25)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q1. 고온, 고압에 강하며 냉동설비의 고압 가스 배관 및 암모니아 냉매 배관에 주로 사용되는 철강 배관 재료의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 강관 (Steel pipe)</div>
+            </li>
+            <li>
+                <strong>Q2. 강관의 두께를 나타내는 지표로, 배관의 최고사용압력과 허용응력을 사용해 산출하는 번호 단위는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스케줄 번호 (Sch. No)</div>
+            </li>
+            <li>
+                <strong>Q3. 일반 배관용 탄소강관의 KS 규격 기호는 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: SPP</div>
+            </li>
+            <li>
+                <strong>Q4. 압력 배관용 탄소강관의 KS 규격 기호는 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: SPPS</div>
+            </li>
+            <li>
+                <strong>Q5. 고온 배관용 탄소강관의 KS 규격 기호는 무엇인가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: SPHT</div>
+            </li>
+            <li>
+                <strong>Q6. 전기저항용접(ERW)으로 제조되어 이음매가 있는 강관과 달리, 압연 가공 등으로 이음매가 없도록 만든 고압용 강관은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이음매 없는 강관 (Seamless pipe)</div>
+            </li>
+            <li>
+                <strong>Q7. 철체 강관의 표면 부식을 방지하기 위해 융융 상태의 아연을 도금한 강관의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 아연도금강관 (백관)</div>
+            </li>
+            <li>
+                <strong>Q8. 도금을 하지 않아 표면이 철 고유의 검은색을 띠는 강관으로, 주로 증기 및 기름 배관에 쓰이는 강관 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 흑관 (Black steel pipe)</div>
+            </li>
+            <li>
+                <strong>Q9. 열전도율이 매우 우수하고 부식에 강하며 곡구(구부림) 가공이 쉬워 프레온 냉매 배관 및 열교환기 튜브에 필수적인 비철 금속 배관 재료는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 동관 (Copper pipe / 구리관)</div>
+            </li>
+            <li>
+                <strong>Q10. 동관은 화학적 특성상 특정한 냉매를 통과시키면 부식 및 폭발성 화합물을 생성하므로 절대 사용할 수 없다. 이 냉매는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 암모니아 (NH₃)</div>
+            </li>
+            <li>
+                <strong>Q11. 동관의 재질 분류 중, 가공성이 좋아 코일 형태로 판매되며 현장에서 굽힘 작업이 용이한 부드러운 관의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 연질 동관</div>
+            </li>
+            <li>
+                <strong>Q12. 동관의 재질 분류 중, 인장강도가 높고 구부러지지 않아 직관 형태로 판매되는 단단한 관의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 경질 동관</div>
+            </li>
+            <li>
+                <strong>Q13. 동관 두께 규격인 K, L, M 타입 중, 벽 두께가 가장 두꺼워 고압 배관 및 지하 매설용으로 쓰이는 타입은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: K 타입 (두께 순서: K > L > M)</div>
+            </li>
+            <li>
+                <strong>Q14. 일반적인 주택 난방이나 급탕, 일반 냉동 배관에 가장 보편적으로 사용되는 동관 규격 타입은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: L 타입</div>
+            </li>
+            <li>
+                <strong>Q15. 크롬과 니켈을 함유하여 부식이 전혀 없고 외관이 미려하며, 식품 공장이나 초청정 배관에 사용되는 합금강관은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스테인리스 강관 (STS)</div>
+            </li>
+            <li>
+                <strong>Q16. 주철관의 한 종류로, 내식성이 우수하여 주로 지하 매설 급수관이나 배수관, 오수 배관에 쓰이는 주철관 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 덕타일 주철관 (구상흑연주철관)</div>
+            </li>
+            <li>
+                <strong>Q17. 플라스틱 배관 재료 중 가볍고 내식성이 우수하나 충격에 약하고 온도가 높아지면 변형되는 대중적인 배수관 자재는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: PVC관 (폴리염화비닐관)</div>
+            </li>
+            <li>
+                <strong>Q18. 비금속 배관 중 가교화 폴리에틸렌 수지로 만들어져 유연성이 매우 뛰어나고 내열성이 좋아 온돌 바닥 난방 배관(엑셀관)에 필수적인 자재는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: XL관 (PE-X관)</div>
+            </li>
+            <li>
+                <strong>Q19. 내식성이 우수하고 마찰 저항이 적으며 강풍 및 수도 배관에 고루 쓰이나 동파에 강한 위생 플라스틱 관의 약어 기호는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: PB관 (폴리부틸렌관)</div>
+            </li>
+            <li>
+                <strong>Q20. 납과 주석의 합금 배관이나 알루미늄 배관처럼 무게가 가볍고 저융점의 특성을 가지는 비철 배관 분류를 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 경금속 배관 (또는 해당 비철 금속관명)</div>
+            </li>
+            <li>
+                <strong>Q21. 일반 연강에 비해 탄소 함유량이 많아 경도가 높으며 강관의 나사 절삭용 다이스(Dies) 휠 재질로 쓰이는 강 자재 종류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 탄소공구강 (STC)</div>
+            </li>
+            <li>
+                <strong>Q22. 강관 내벽에 시멘트 모르타르나 에폭시 수지를 코팅하여 부식과 스케일 형성을 완벽히 차단한 강관 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 라이닝 강관</div>
+            </li>
+            <li>
+                <strong>Q23. 동관을 제작할 때 인(P)으로 탈산하여 잔류 산소를 제거한 동관으로, 열교환기용으로 가장 널리 쓰이는 순동의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 인탈산동</div>
+            </li>
+            <li>
+                <strong>Q24. 수소 가스가 포함된 고온 상태에서 순동 배관을 사용할 때 동 내부의 산소와 반응하여 균열을 일으키는 치명적인 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 수소 취성 현상 (수소 가포화 균열)</div>
+            </li>
+            <li>
+                <strong>Q25. 황동 배관이 가공 후 잔류 응력과 공기 중의 아황산 가스, 암모니아 성분에 의해 서서히 갈라지는 부식 현상은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 응력 부식 균열 (시즌 크랙 / Season crack)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 2. 배관 이음 및 이음쇠 부속 (26 ~ 50)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q26. 관의 도중에 설치하여 관을 분기(T자형)하고자 할 때 사용하는 이음쇠의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 티 (Tee)</div>
+            </li>
+            <li>
+                <strong>Q27. 동일 직경의 관을 직선으로 연결할 때 쓰이며, 나사식 결합 구조를 가진 짧은 원통형 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 소켓 (Socket)</div>
+            </li>
+            <li>
+                <strong>Q28. 배관 경로의 방향을 90도 또는 45도 바꾸고자 할 때 사용하는 곡선형 이음쇠 부속의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 엘보 (Elbow)</div>
+            </li>
+            <li>
+                <strong>Q29. 엘보보다 곡률 반경이 크고 완만하여 유체의 마찰 저항을 줄일 수 있는 방향 전환용 배관 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 벤드 (Bend)</div>
+            </li>
+            <li>
+                <strong>Q30. 관경이 서로 다른 두 관(큰 관과 작은 관)을 직선으로 연결할 때 관경을 축소시키기 위해 사용하는 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 레듀셔 (Reducer / 이경 소켓)</div>
+            </li>
+            <li>
+                <strong>Q31. 구경이 큰 이음쇠 나사 구멍에 구경이 작은 관을 연결할 때 외벽과 내벽에 모두 나사가 파여 있는 부싱 형태의 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 부싱 (Bushing)</div>
+            </li>
+            <li>
+                <strong>Q32. 나사식 이음에서 향후 유지보수, 탈착, 부품 교체를 위해 배관을 쉽게 분리할 수 있도록 만든 2인치(50A) 이하 소구경용 이음 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 유니온 (Union)</div>
+            </li>
+            <li>
+                <strong>Q33. 고압 배관이나 50A 이상의 대구경 강관 배관에서 장착 및 분리를 용이하게 하기 위해 관 단면에 원판 모양의 플랜지를 대고 볼트·너트로 조이는 이음 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플랜지 이음 (Flange joint)</div>
+            </li>
+            <li>
+                <strong>Q34. 배관 말단을 영구적으로 폐쇄하여 유체의 흐름을 막을 때 사용하는 모자 모양의 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 캡 (Cap)</div>
+            </li>
+            <li>
+                <strong>Q35. 배관 나사부의 기밀을 유지하고 누수를 방지하기 위해 나사선 위에 감아주는 흰색의 불소수지 테이프 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 테프론 테이프 (Seal tape)</div>
+            </li>
+            <li>
+                <strong>Q36. 동관 이음 방식 중 동관 말단을 나팔 모양으로 넓힌 후 링 너트를 조여 물리적으로 기밀하는 이음 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플레어 이음 (Flare joint / 플레어링 이음)</div>
+            </li>
+            <li>
+                <strong>Q37. 동관을 연결할 때 소켓이나 부속 사이에 동관을 끼워 넣고 가스 토치로 가열하여 모세관 현상으로 납을 침투시켜 결합하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 납땜 이음 (Solder joint)</div>
+            </li>
+            <li>
+                <strong>Q38. 동관 납땜 중 450℃ 이하의 비교적 낮은 온도에서 주석-납 합금을 사용하는 납땜 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 연납땜 (Soft soldering)</div>
+            </li>
+            <li>
+                <strong>Q39. 냉동 가스 배관 등 고압 강도가 요구되는 동관 접합부에 450℃ 이상의 고온에서 은납, 인동납 등을 사용하는 납땜 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 경납땜 (Brazing)</div>
+            </li>
+            <li>
+                <strong>Q40. 경납땜 시 용융된 납의 산화를 방지하고 융착을 돕기 위해 접합부에 바르는 화학 물질(붕사 등)을 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 용제 (플럭스 / Flux)</div>
+            </li>
+            <li>
+                <strong>Q41. 주철관의 한쪽은 소켓(암), 한쪽은 삽입구(수) 형태로 되어 있어 인견사나 리드(납)를 채워 다지는 이음 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 소켓 이음 (소켓-스피곳 이음)</div>
+            </li>
+            <li>
+                <strong>Q42. 플랜지 이음 시 두 플랜지 단면 사이에 끼워 넣어 유체가 밖으로 새지 않도록 차단하는 패킹 자재용 원판은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 가스켓 (Gasket)</div>
+            </li>
+            <li>
+                <strong>Q43. 신축이음쇠 중 관 자체를 ㄷ자 형태나 원형으로 구부려 관의 탄성을 이용해 신축을 흡수하며 고압에 가장 강한 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 루프형 신축이음쇠 (신축 만곡관)</div>
+            </li>
+            <li>
+                <strong>Q44. 신축이음쇠 중 파형 모양의 얇은 금속 통을 사용하여 신축을 흡수하며, 설치 공간이 적게 들고 주택 온수 배관에 빈출되는 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 벨로즈형 신축이음쇠 (파형 신축이음쇠)</div>
+            </li>
+            <li>
+                <strong>Q45. 신축이음쇠 중 외통과 내통을 겹치고 그 사이에 그랜드 패킹을 채워 활등(슬라이딩)식으로 신축을 흡수하는 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 슬리브형 신축이음쇠</div>
+            </li>
+            <li>
+                <strong>Q46. 2개 이상의 엘보(Elbow) 나사부의 회전 비틀림 작용을 이용하여 신축을 흡수하며 방열기 주변 온수 배관에 쓰이는 신축이음은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스위블형 신축이음 (Swivel joint)</div>
+            </li>
+            <li>
+                <strong>Q47. 두 축이 만나는 각도가 수시로 변하는 곳에 두 개의 구형 관절 부속을 조합하여 신축 및 변위를 자유롭게 흡수하는 고가형 이음쇠는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 볼 조인트 (Ball joint)</div>
+            </li>
+            <li>
+                <strong>Q48. 나사 절삭 기계로 강관에 수나사를 가공할 때 적용하는 표준 관용 나사의 명칭(테이퍼 구조 적용됨)은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 관용 테이퍼 나사 (PT 나사)</div>
+            </li>
+            <li>
+                <strong>Q49. 티(Tee) 이음쇠 대용으로 본관에서 직접 분기관을 인출할 때 분기 구멍을 성형하는 수동용 프레스 공구 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 티 뽑기 공구 (버링기 / 바링공구)</div>
+            </li>
+            <li>
+                <strong>Q50. 강관 웰딩(Welding) 접합 시 관 끝을 비스듬하게 깎아 용접봉이 깊숙이 침투하도록 홈을 파는 작업을 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 개선 가공 (베벨링 / Beveling)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 3. 밸브 및 배관 부속 기기 (51 ~ 75)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q51. 유체의 흐름과 평행하게 개폐판이 상하로 작동하여 문(Gate)을 여닫는 구조로, 마찰 저항이 매우 적어 전개 또는 전폐용으로 쓰이는 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 게이트 밸브 (슬루스 밸브 / 제트 밸브)</div>
+            </li>
+            <li>
+                <strong>Q52. 유체의 흐름이 S자 형태로 꺾여 지나가며 가동 격벽을 누르는 구조로, 마찰 저항은 크나 유량 조절(Throttling) 성능이 가장 우수한 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 글로브 밸브 (스톱 밸브 / 지구형 밸브)</div>
+            </li>
+            <li>
+                <strong>Q53. 유체의 입구와 출구 방향이 90도 직각을 이루고 있으며 주로 증기 배관이나 유량 조절부 코너에 설치되는 스톱 밸브 종류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 앵글 밸브 (Angle valve)</div>
+            </li>
+            <li>
+                <strong>Q54. 원판 모양의 밸브 디스크가 축을 중심으로 90도 회전하며 개폐되는 구조로, 협소한 공간과 대구경 배관에 적합한 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 버터플라이 밸브 (Butterfly valve)</div>
+            </li>
+            <li>
+                <strong>Q55. 밸브 내부에 구멍이 뚫린 구(Ball)가 들어있어 손잡이를 90도만 돌려도 신속하게 전개/전폐가 가능한 구조의 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 볼 밸브 (Ball valve)</div>
+            </li>
+            <li>
+                <strong>Q56. 유체가 한쪽 방향으로만 흐르게 하고 반대 방향으로의 역류를 물리적으로 완벽하게 차단하는 역방향 방지 밸브의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 체크 밸브 (Check valve)</div>
+            </li>
+            <li>
+                <strong>Q57. 체크 밸브 종류 중 디스크가 힌지를 중심으로 그네처럼 회전하여 열리는 방식으로, 마찰 저항이 적어 수평 배관에 주로 쓰이는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스윙형 체크 밸브 (Swing check valve)</div>
+            </li>
+            <li>
+                <strong>Q58. 체크 밸브 종류 중 디스크가 유체 압력에 의해 수직으로 들어 올려지며 열리는 방식으로, 수평 배관에만 설치해야 하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 리프트형 체크 밸브 (Lift check valve)</div>
+            </li>
+            <li>
+                <strong>Q59. 보일러나 냉동 고압 용기 내부 압력이 허용치를 초과할 때 스프링 작용으로 유체를 외부로 자동 방출하여 폭발을 막는 안전 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 안전 밸브 (Safety valve)</div>
+            </li>
+            <li>
+                <strong>Q60. 1차측의 높은 유체 압력을 조정 스프링과 다이어프램의 작동을 통해 2차측에 원하는 일정한 낮은 압력으로 강하시켜 주는 밸브는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 감압 밸브 (Pressure reducing valve)</div>
+            </li>
+            <li>
+                <strong>Q61. 배관 도중에 유체 속의 모래, 녹, 찌꺼기 등 불순물을 금속망(Mesh)으로 걸러내어 후단 기기를 보호하는 부속 장치의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 스트레이너 (Strainer / 여과기)</div>
+            </li>
+            <li>
+                <strong>Q62. 스트레이너의 형상 분류 중 가장 보편적이며 그물망 청소 및 탈착이 쉬워 본관 배관에 가장 널리 쓰이는 형태 기호는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: Y형 스트레이너</div>
+            </li>
+            <li>
+                <strong>Q63. 냉동 장치 프레온 배관 도중에 수분을 흡수 제거하기 위해 설치하며, 내부에 실리카겔이나 활성 알루미나를 충전한 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 건조기 (드라이어 / Dryer)</div>
+            </li>
+            <li>
+                <strong>Q64. 냉동 배관의 액관 도중에 설치하여 냉매의 흐름 상태(기포 유무)와 냉매 속 수분 함유 여부를 색상 변화로 확인할 수 있는 유리창 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 사이트 글라스 (Sight glass / 액면계)</div>
+            </li>
+            <li>
+                <strong>Q65. 배관 내 유체의 흐름 유무를 감지하여 전기적 신호로 변환해 주는 스위치로, 펌프 공회전 방지 등에 쓰이는 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플로우 스위치 (Flow switch / 흐름 스위치)</div>
+            </li>
+            <li>
+                <strong>Q66. 펌프 흡입관 말단(수조 내부)에 설치하여 유체의 역류를 방지하고 펌프 가동 시 마중물이 빠져나가지 않도록 잡아주는 체크 밸브 일체형 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 후트 밸브 (Foot valve)</div>
+            </li>
+            <li>
+                <strong>Q67. 고온의 증기 배관에서 방열하고 남은 응축수(물)만을 자동 배출하고 증기가 새어 나가는 것을 차단해 주는 부속 기기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 증기 트랩 (Steam trap)</div>
+            </li>
+            <li>
+                <strong>Q68. 증기 트랩 종류 중 응축수와 증기의 온도 차이에 의한 바이메탈이나 벨로즈 변형을 이용하는 트랩 분류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 온도 조절식 트랩 (서모스탯 트랩)</div>
+            </li>
+            <li>
+                <strong>Q69. 증기 트랩 종류 중 응축수의 부력 차이에 의해 내부 플로트(공)가 상하로 움직이며 밸브를 개폐하는 기계식 트랩의 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플로트 트랩 (Float trap)</div>
+            </li>
+            <li>
+                <strong>Q70. 증기 트랩 종류 중 디스크 상하부의 운동에너지와 압력 변화를 이용하여 작동하며, 구조가 간단하고 고압에 견뎌 가장 널리 쓰이는 트랩은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 디스크식 트랩 (열역학적 트랩)</div>
+            </li>
+            <li>
+                <strong>Q71. 온수 배관의 최고 정점에 설치하여 배관 내부의 기포(공기 고임)를 자동으로 배출시켜 온수 순환 불량을 예방하는 장치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 자동 공기 빼기 밸브 (Air vent valve)</div>
+            </li>
+            <li>
+                <strong>Q72. 수도 배관 등에서 압력 급변 시 발생하는 충격 압력(수격)을 흡수하기 위해 엘보 상부 등에 설치하는 밀폐형 공기실 기기는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 수격 방지기 (워터해머 흡수기 / Air chamber)</div>
+            </li>
+            <li>
+                <strong>Q73. 전기 신호(On/Off)에 의해 코일이 자화되어 밸브 플런저를 들어 올리거나 닫아주는 원격 제어용 자동 개폐 밸브 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전자 밸브 (솔레노이드 밸브 / Solenoid valve)</div>
+            </li>
+            <li>
+                <strong>Q74. 플랜지 이음부의 볼트를 조일 때 가해지는 회전력을 정밀하게 측정하여 가스켓 파손 및 볼트 파단방지를 돕는 계측 공구는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 토크 렌치 (Torque wrench)</div>
+            </li>
+            <li>
+                <strong>Q75. 고온 배관의 외부로 열이 방출되는 손실을 막고 열효율을 높이기 위해 유리섬유, 암면 등을 배관 외벽에 감싸는 작업 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 보온 작업 (단열 작업)</div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">PART 4. 배관 시공 및 현장 공구 (76 ~ 100)</h2>
+    <div class="sub-section">
+        <ul class="concept-list">
+            <li>
+                <strong>Q76. 동관 작업 시 관 단면을 절단한 후 내벽에 생기는 날카로운 거스름(버, Burr)을 제거하는 데 사용하는 수동 공구는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 리머 (Reamer / 디버링 툴)</div>
+            </li>
+            <li>
+                <strong>Q77. 동관을 굽힐 때 주름이 잡히거나 납작하게 찌그러지는 현상을 방지하기 위해 내/외벽에 대고 굽히는 가동형 시공 공구는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 튜브 벤더 (동관 벤더)</div>
+            </li>
+            <li>
+                <strong>Q78. 연질 동관의 말단을 확관하여 소켓 부속 없이 동관끼리 겹쳐 끼워 납땜할 수 있도록 컵 모양으로 넓혀주는 시공 공구는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 익스팬더 (확관기 / Expander)</div>
+            </li>
+            <li>
+                <strong>Q79. 동관 플레어 이음(나팔관 조인트) 가공 시 플레어 블록에 동관을 물리고 나사 축을 돌려 말단을 45도 나팔 모양으로 벌려주는 공구 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플레어링 툴 세트 (Flaring tool)</div>
+            </li>
+            <li>
+                <strong>Q80. 강관 나사 가공 시 수동으로 라쳇 손잡이를 흔들어 나사를 절삭하는 나사 가공구 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 오스타형 나사 절삭기 (수동 오스타)</div>
+            </li>
+            <li>
+                <strong>Q81. 강관을 절단할 때 절단날 휠을 관 외벽에 누르고 한 바퀴씩 돌려 가며 깔끔하게 일직선 절단을 해내는 배관 공구는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 파이프 커터 (Pipe cutter)</div>
+            </li>
+            <li>
+                <strong>Q82. 파이프 바이스에 강관을 고정하고 큰 직경의 나사식 배관 부속이나 밸브를 강력한 지지력으로 회전시켜 조이는 배관 렌치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 파이프 렌치 (Pipe wrench)</div>
+            </li>
+            <li>
+                <strong>Q83. 일반 파이프 렌치로 잡기 힘든 극대구경 배관이나 협소한 공간에서 체인 링크를 관에 감아 체인의 마찰력으로 돌리는 특수 렌치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 체인 렌치 (Chain wrench)</div>
+            </li>
+            <li>
+                <strong>Q84. 배관을 벽면이나 천장에 고정하고 중량을 지지하기 위해 ㄷ자 모양의 볼트를 사용하여 구조물에 결속하는 고정 철물 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: U볼트 (U-Bolt)</div>
+            </li>
+            <li>
+                <strong>Q85. 수평 배관의 자중을 천장 구조물로부터 매달아 지지하는 배관 지지구 부속의 총칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 행거 (Hanger)</div>
+            </li>
+            <li>
+                <strong>Q86. 벽체나 바닥을 관통하는 배관 시공 시, 건물의 하중이 배관에 직접 전달되지 않고 향후 교체 수리가 쉽도록 미리 매립해 두는 보호용 외관은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 슬리브 (Sleeve / 슬리브관)</div>
+            </li>
+            <li>
+                <strong>Q87. 수평 배관 시공 시 내부 유체나 응축수가 정체되지 않고 자연 유동하도록 주기적으로 주는 경사(기울기)를 뜻하는 용어는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 구배 (기울기 / Slope)</div>
+            </li>
+            <li>
+                <strong>Q88. 증기 배관의 수평 주관 구배 시, 증기의 흐름 방향과 응축수의 배수 방향이 같도록 주는 구배 방식을 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 순구배 (앞내림 구배)</div>
+            </li>
+            <li>
+                <strong>Q89. 증기 배관 순구배 시 권장되는 일반적인 표준 기울기 수치 범위는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 1 / 250 (또는 1/200 ~ 1/300)</div>
+            </li>
+            <li>
+                <strong>Q90. 증기 유동 방향과 응축수 유동 방향이 반대가 되는 수평 주관 구배 방식으로, 관경을 순구배보다 크게 해야 하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 역구배 (앞오름 구배)</div>
+            </li>
+            <li>
+                <strong>Q91. 증기 배관 역구배 시 유체 충돌 마찰이 크므로 더 급한 기울기를 주어야 한다. 이때 권장 표준 기울기 수치는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 1 / 80 이상 (기울기가 급함)</div>
+            </li>
+            <li>
+                <strong>Q92. 수평 배관 도중 관경이 축소되는 레듀셔 이음을 할 때 관 하부에 응축수가 고이지 않도록 바닥면을 수평하게 일치시키는 레듀셔 부속 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 편심 레듀셔 (Eccentric reducer)</div>
+            </li>
+            <li>
+                <strong>Q93. 수평 온수 배관에서 관경을 줄일 때 관 내부 상부에 공기가 고이는 현상을 방지하기 위해 사용하는 레듀셔 종류는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 편심 레듀셔 (상부 평면 정렬 시공)</div>
+            </li>
+            <li>
+                <strong>Q94. 배관 시공 완료 후 용접부나 조인 트부의 누수 및 기밀 상태를 최종 확인하기 위해 규정 압력의 물을 채워 가하는 테스트는?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 수압 시험 (Hydraulic test)</div>
+            </li>
+            <li>
+                <strong>Q95. 동수압 테스트가 곤란한 냉매 가스 배관 계통에 질소 가스(N₂) 등을 충전하여 가압 결함 유무를 확인하는 테스트 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 기압 시험 (Pneumatic test / 기밀 시험)</div>
+            </li>
+            <li>
+                <strong>Q96. 지하에 매설하는 배관 구조물이 토양 속 미세 전류 및 수분에 의해 산화 부식되는 것을 방지하기 위해 마그네슘 등의 희생양극을 연결하는 방식은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 전기 방식 (Cathodic protection / 음극 보호법)</div>
+            </li>
+            <li>
+                <strong>Q97. 배관의 신축이 자유로워야 하는 곳에 사용되며, 두 장의 원판 사이에 고무나 벨로즈를 넣어 진동 차단 및 신축 복원을 동시에 해결하는 이음은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플렉시블 조인트 (Flexible joint / 자바라 이음)</div>
+            </li>
+            <li>
+                <strong>Q98. 냉동기 압축기의 격렬한 진동이 연결된 강관 배관으로 전달되어 배관이 파손되는 것을 막기 위해 압축기 토출 직후에 설치하는 신축 완충 부속은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 플렉시블 진동 흡수기 (Vibration absorber / 플렉시블 콘넥터)</div>
+            </li>
+            <li>
+                <strong>Q99. 배관 시공 도면에서 관의 중심선을 기준으로 관의 실제 절삭 소요 길이를 계산할 때, 이음쇠 중심에서 나사 물림부까지의 길이를 빼주는 산출법 공식 요소를 무엇이라 하는가?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 이음쇠 여유 길이 (뺄 길이 계산)</div>
+            </li>
+            <li>
+                <strong>Q100. 냉동 장치 배관 계통 내부에 잔류하는 수분과 비응축 가스(공기)를 진공 펌프로 완벽히 뽑아내는 배관 최종 마감 필수 공정 명칭은?</strong><br>
+                <span class="quiz-toggle-btn" onclick="toggleQuiz(this)">정답 확인</span>
+                <div class="quiz-answer-box">👉 정답: 진공 작업 (진공 건조 / Evacuation)</div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 공조냉동기계기능사 필기/실기 대비 배관일반 마스터 과정</p>
+        <p style="margin-top: 5px; font-size: 11px;">수고하셨습니다. 배관일반 100문항을 완벽히 정복하시면 합격의 문이 열립니다!</p>
+    </footer>
+</div>
+
+<button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">🌙 다크모드 보기</button>
+
+<script>
+    // 오프라인 file:/// 보안 우회 및 테마 복원 안전장치
+    (function() {
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.className = 'dark-mode';
+            }
+        } catch (e) {
+            console.log("로컬 보안 임시 세션 가동");
+        }
+    })();
+
+    window.onload = function() {
+        var btn = document.getElementById('themeToggle');
+        if (document.body.classList.contains('dark-mode') || document.body.className === 'dark-mode') {
+            btn.innerHTML = '☀️ 라이트모드 보기';
+        }
+    };
+
+    function toggleTheme() {
+        var body = document.body;
+        var btn = document.getElementById('themeToggle');
+
+        if (body.className === 'dark-mode' || body.classList.contains('dark-mode')) {
+            body.className = '';
+            body.classList.remove('dark-mode');
+            btn.innerHTML = '🌙 다크모드 보기';
+            try { localStorage.setItem('theme', 'light'); } catch(e) {}
+        } else {
+            body.className = 'dark-mode';
+            body.classList.add('dark-mode');
+            btn.innerHTML = '☀️ 라이트모드 보기';
+            try { localStorage.setItem('theme', 'dark'); } catch(e) {}
+        }
+    }
+
+    // 구형 브라우저 완벽 호환 수동 퀴즈 제어 함수
+    function toggleQuiz(element) {
+        var answerBox = element.nextElementSibling;
+        while (answerBox && !answerBox.classList.contains('quiz-answer-box')) {
+            answerBox = answerBox.nextElementSibling;
+        }
+
+        if (answerBox) {
+            if (answerBox.style.display === 'block') {
+                answerBox.style.display = 'none';
+                element.innerHTML = '정답 확인';
+            } else {
+                answerBox.style.display = 'block';
+                element.innerHTML = '닫기 ✖';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
